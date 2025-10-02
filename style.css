@@ -1336,27 +1336,30 @@ body {
   line-height: 1.1;
 }
 
-/* === iOS fix: logo přesně nad názvem, stejné vycentrování pro HOME/AWAY === */
+/* === iOS fix: logo přesně nad názvem + sražení dolů === */
 .match-graphic .overlay-content .team-names-centered{
+  /* 1) oblast pro loga+názvy; posuneme ji trochu dolů */
   grid-column: 1 / -1;
   grid-row: 1 / span 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: end;
-  gap: clamp(4px, 1vh, 12px);
+  align-items: start;                         /* začínáme odshora uvnitř vlastní oblasti */
+  row-gap: clamp(4px, 1vh, 12px);
+  column-gap: clamp(6px, 1.7vw, 14px);
+  padding-top: clamp(10px, 1.4vh, 16px);      /* <<< hlavní sražení dolů */
 }
 
 .match-graphic .overlay-content .team-names-centered .team-block{
   display: grid;
-  grid-template-rows: auto auto;      /* [logo] nad [název] */
+  grid-template-rows: auto auto;              /* [logo] nad [název] */
   justify-items: center;
 }
 
 .match-graphic .overlay-content .team-names-centered .team-logo{
-  display: block;                     /* zruší inline baseline mezery */
+  display: block;
   width: auto;
   max-width: 92%;
-  max-height: min(12vh, 12dvh);
+  max-height: min(9vh, 9dvh);               /* o chlup menší než dřív, ať je víc místa */
   object-fit: contain;
   margin: 0;
   transform: translateY(0) !important;
