@@ -1059,8 +1059,8 @@ function shrinkTextToFit(el, minPx = 10) {
     const minute = e.minute ? `${e.minute}’ ` : "";
     const body = e.fullText ?? e.text ?? "";
     return side === "home"
-      ? `${icon(e.type)} ${minute}${body}`        // HOME: ikona vlevo
-      : `${minute}${body} ${icon(e.type)}`;      // AWAY: ikona vpravo
+      ? `${icon(e.type)} ${body}`        // HOME: ikona vlevo
+      : `${body} ${icon(e.type)}`;      // AWAY: ikona vpravo
   };
 
   const addLine = (parent, text, align) => {
@@ -1499,7 +1499,7 @@ function shrinkTextToFit(el, minPx = 10) {
     let yH = availTop;
     ctx.textAlign = "right";
     for (const e of homes) {
-      const txt = `${({ goal: "⚽", yellow: "🟨", red: "🟥", sub: "🔁", pen: "●" }[e.type] || "•")} ${e.minute ? e.minute + "’ " : ""}${e.fullText ?? e.text ?? ""}`;
+      const txt = `${({ goal: "⚽", yellow: "🟨", red: "🟥", sub: "🔁", pen: "●" }[e.type] || "•")} ${e.minute ? "" + "’ " : ""}${e.fullText ?? e.text ?? ""}`;
       const usedPx = drawSingleLineShrink(txt, homeRight, yH, homeMaxW, evPx, 400, "white", "right");
       yH += Math.round(usedPx * 1.2) + gap;
     }
@@ -1508,7 +1508,7 @@ function shrinkTextToFit(el, minPx = 10) {
     let yA = availTop;
     ctx.textAlign = "left";
     for (const e of aways) {
-      const txt = `${e.minute ? e.minute + "’ " : ""}${e.fullText ?? e.text ?? ""} ${({ goal: "⚽", yellow: "🟨", red: "🟥", sub: "🔁", pen: "●" }[e.type] || "•")}`;
+      const txt = `${e.minute ? "" + "’ " : ""}${e.fullText ?? e.text ?? ""} ${({ goal: "⚽", yellow: "🟨", red: "🟥", sub: "🔁", pen: "●" }[e.type] || "•")}`;
       const usedPx = drawSingleLineShrink(txt, awayLeft, yA, awayMaxW, evPx, 400, "white", "left");
       yA += Math.round(usedPx * 1.2) + gap;
     }
