@@ -558,7 +558,7 @@
         },
         {
           "name": "Real Betis Balompié",
-          "path": "logos/Spain - LaLiga/Real Betis Balompiee.png",
+          "path": "logos/Spain - LaLiga/Real Betis Balompie.png",
           "color": "#128A2E",
           "short": "RBB"
         },
