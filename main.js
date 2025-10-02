@@ -1204,12 +1204,18 @@
       Math.max(relTop(rHomeLogo) ?? 0, relTop(rAwayLogo) ?? 0, minTopPad)
     );
 
-    const yName = Math.round(
+
+    const padCoef = state.aspectRatio === "9:16" ? 18 : 30;
+
+
+    let yName = Math.round(
       Math.max(
         relTop(rHomeName) ?? (yLogo + logoH + 12 * scaleFactor),
         relTop(rAwayName) ?? (yLogo + logoH + 12 * scaleFactor)
       )
     );
+
+    yName = yName + padCoef;
 
     const yScore = Math.round(
       relTop(rScore) ?? (yName + nameFontPx * 1.2 * scaleFactor + 16 * scaleFactor)
