@@ -17,6 +17,8 @@
     }
   };
 
+
+
   const eventIcons = Object.freeze({
     goal: "⚽",
     ownGoal: "🔴⚽",
@@ -34,6 +36,9 @@
     aspectRatio: "9:16",
     maxEvents: 15,
   });
+  const DEFAULT_LEAGUE = 'England - Premier League';
+  const DEFAULT_HOME_TEAM = 'West Ham United';
+  const DEFAULT_AWAY_TEAM = 'Wolverhampton Wanderers';
 
   const teamsData = Object.freeze(
     {
@@ -832,30 +837,30 @@
   };
 
   // Zmenšuje font-size na elementu tak dlouho, dokud se text vejde do jeho šířky.
-// Vrací skutečně použitou velikost (px).
-function shrinkTextToFit(el, minPx = 10) {
-  // vychozi velikost bere z inline nebo computed
-  const cs = window.getComputedStyle(el);
-  let size = parseFloat(el.style.fontSize || cs.fontSize || "16") || 16;
+  // Vrací skutečně použitou velikost (px).
+  function shrinkTextToFit(el, minPx = 10) {
+    // vychozi velikost bere z inline nebo computed
+    const cs = window.getComputedStyle(el);
+    let size = parseFloat(el.style.fontSize || cs.fontSize || "16") || 16;
 
-  // jistota: element musí mít vlastní šířku k měření
-  el.style.width = "100%";
+    // jistota: element musí mít vlastní šířku k měření
+    el.style.width = "100%";
 
-  // v některých enginech je potřeba nejdřív přimět layout
-  // (hlavně když přidáváme více řádků najednou)
-  // proto měříme v rAF níže při volání
-  const fit = () => {
-    // bezpečnostní pojistka proti nekonečnu
-    let guard = 200;
-    while (guard-- > 0 && el.scrollWidth > el.clientWidth && size > minPx) {
-      size -= 1;
-      el.style.fontSize = `${size}px`;
-    }
-    return size;
-  };
+    // v některých enginech je potřeba nejdřív přimět layout
+    // (hlavně když přidáváme více řádků najednou)
+    // proto měříme v rAF níže při volání
+    const fit = () => {
+      // bezpečnostní pojistka proti nekonečnu
+      let guard = 200;
+      while (guard-- > 0 && el.scrollWidth > el.clientWidth && size > minPx) {
+        size -= 1;
+        el.style.fontSize = `${size}px`;
+      }
+      return size;
+    };
 
-  return fit();
-}
+    return fit();
+  }
 
 
   const ALL_LEAGUES_VALUE = "__ALL__";
@@ -878,7 +883,7 @@ function shrinkTextToFit(el, minPx = 10) {
       return custom.trim() || (side === "home" ? "Domácí" : "Hosté");
     }
     const selected = side === "home" ? s.homeTeamSelect : s.awayTeamSelect;
-    if (!selected) return side === "home" ? "Wolverhampton Wanderers" : "Hosté";
+    if (!selected) return side === "home" ? "Domácí" : "Hosté";
     const opt = selectTeamOptionByName(s, selected);
     if (!opt) return selected;
     return s.useShortNames ? (opt.short ?? opt.name) : opt.name;
@@ -1037,53 +1042,53 @@ function shrinkTextToFit(el, minPx = 10) {
 
 
   function renderEventsPreviewSingleLine(state) {
-  const section = document.querySelector(".events-section-centered");
-  const homeBox = document.querySelector(".home-events");
-  const awayBox = document.querySelector(".away-events");
-  if (!section || !homeBox || !awayBox) return;
+    const section = document.querySelector(".events-section-centered");
+    const homeBox = document.querySelector(".home-events");
+    const awayBox = document.querySelector(".away-events");
+    if (!section || !homeBox || !awayBox) return;
 
-  homeBox.innerHTML = "";
-  awayBox.innerHTML = "";
+    homeBox.innerHTML = "";
+    awayBox.innerHTML = "";
 
-  const events = state.events ?? [];
-  const homes = events.filter(e => e.team === "home");
-  const aways = events.filter(e => e.team === "away");
+    const events = state.events ?? [];
+    const homes = events.filter(e => e.team === "home");
+    const aways = events.filter(e => e.team === "away");
 
-  const icon = (t) =>
-    ({ goal: "⚽", yellow: "🟨", red: "🟥", sub: "🔁", pen: "●" }[t] || "•");
+    const icon = (t) =>
+      ({ goal: "⚽", yellow: "🟨", red: "🟥", sub: "🔁", pen: "●" }[t] || "•");
 
-  const basePx = (state.fontSizes && state.fontSizes.event) || 18;
-  const minPx = 10;
+    const basePx = (state.fontSizes && state.fontSizes.event) || 18;
+    const minPx = 10;
 
-  const mkText = (e, side) => {
-    const minute = e.minute ? `${e.minute}’ ` : "";
-    const body = e.fullText ?? e.text ?? "";
-    return side === "home"
-      ? `${icon(e.type)} ${body}`        // HOME: ikona vlevo
-      : `${body} ${icon(e.type)}`;      // AWAY: ikona vpravo
-  };
+    const mkText = (e, side) => {
+      const minute = e.minute ? `${e.minute}’ ` : "";
+      const body = e.fullText ?? e.text ?? "";
+      return side === "home"
+        ? `${icon(e.type)} ${body}`        // HOME: ikona vlevo
+        : `${body} ${icon(e.type)}`;      // AWAY: ikona vpravo
+    };
 
-const addLine = (parent, text, align) => {
-  const div = document.createElement("div");
-  div.className = "event-line";
-  div.style.fontSize = "6px";
-  div.style.textAlign = align;
-  div.style.whiteSpace = "nowrap";    // jistota 1 řádku
-  div.textContent = text;
-  parent.appendChild(div);
+    const addLine = (parent, text, align) => {
+      const div = document.createElement("div");
+      div.className = "event-line";
+      div.style.fontSize = "6px";
+      div.style.textAlign = align;
+      div.style.whiteSpace = "nowrap";    // jistota 1 řádku
+      div.textContent = text;
+      parent.appendChild(div);
 
-  // iOS fix: shrink až PO načtení fontů a 1 frame po vložení do DOMu
-  (document.fonts?.ready ? document.fonts.ready : Promise.resolve()).then(() => {
-    requestAnimationFrame(() => shrinkTextToFit(div, 10));
-  });
-};
+      // iOS fix: shrink až PO načtení fontů a 1 frame po vložení do DOMu
+      (document.fonts?.ready ? document.fonts.ready : Promise.resolve()).then(() => {
+        requestAnimationFrame(() => shrinkTextToFit(div, 10));
+      });
+    };
 
 
-  // HOME (v levé polovině, zarovnáno doprava)
-  homes.forEach((e) => addLine(homeBox, mkText(e, "home"), "right"));
-  // AWAY (v pravé polovině, zarovnáno doleva)
-  aways.forEach((e) => addLine(awayBox, mkText(e, "away"), "left"));
-}
+    // HOME (v levé polovině, zarovnáno doprava)
+    homes.forEach((e) => addLine(homeBox, mkText(e, "home"), "right"));
+    // AWAY (v pravé polovině, zarovnáno doleva)
+    aways.forEach((e) => addLine(awayBox, mkText(e, "away"), "left"));
+  }
 
 
   const applyEventsScaleClass = (state) => {
@@ -1160,6 +1165,7 @@ const addLine = (parent, text, align) => {
     const exportW = 1080;
     const exportH = state.aspectRatio === "9:16" ? 1920 : 1350;
     const scaleFactor = exportW / previewW;
+    const minTopPad = Math.round(exportH * 0.02);
 
     const rectOf = (el) => (el ? el.getBoundingClientRect() : null);
     const relTop = (r) => (r ? (r.top - pRect.top) * scaleFactor : null);
@@ -1195,7 +1201,7 @@ const addLine = (parent, text, align) => {
     const logoH = Math.round(logoHPreview * scaleFactor);
 
     const yLogo = Math.round(
-      Math.max(relTop(rHomeLogo) ?? 0, relTop(rAwayLogo) ?? 0, 0)
+      Math.max(relTop(rHomeLogo) ?? 0, relTop(rAwayLogo) ?? 0, minTopPad)
     );
 
     const yName = Math.round(
@@ -1233,7 +1239,7 @@ const addLine = (parent, text, align) => {
     const awayNameMaxW = Math.floor(relW(rAwayName) || 320 * scaleFactor);
 
     const scoreHalf = (relW(rScore) || 240 * scaleFactor) / 2;
-    const scoreOffsetX = Math.max(60 * scaleFactor, scoreHalf * 0.66);
+    const scoreOffsetX = Math.max(36 * scaleFactor, scoreHalf * 0.50);
 
     const gapSm = Math.round(12 * scaleFactor);
     const gapMd = Math.round(16 * scaleFactor);
@@ -1833,6 +1839,29 @@ const addLine = (parent, text, align) => {
     populateLeagues();
     populateTimeSelectorsIfNeeded();
     setDefaults();
+
+    // // --- PŘEDVÝBĚR LIGY A TÝMŮ (vložit přesně sem) ---
+    // store.setState(reducers.setLeague(DEFAULT_LEAGUE));
+    // populateTeamOptions();                // znovu naplní <select> podle ligy
+
+    // // jistota: nepoužíváme "vlastní názvy"
+    // store.setState(reducers.setCustomToggle("home", false));
+    // store.setState(reducers.setCustomToggle("away", false));
+    // toggleCustomTeam("home");
+    // toggleCustomTeam("away");
+
+    // // nastav konkrétní týmy z databáze
+    // store.setState(reducers.setTeamFromSelect("home", DEFAULT_HOME_TEAM));
+    // store.setState(reducers.setTeamFromSelect("away", DEFAULT_AWAY_TEAM));
+
+    // // okamžitě překresli
+    // fullRender(store.getState());
+    // // --- konec předvýběru ---
+
+
+
+
+
 
     window.addEventListener("resize", () => {
       const img = store.getState().backgroundImage;

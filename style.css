@@ -1,4 +1,6 @@
 :root {
+    --logo-name-gap: clamp(28px, 2.6vh, 42px);
+
   /* Primitive Color Tokens */
   --color-white: rgba(255, 255, 255, 1);
   --color-black: rgba(0, 0, 0, 1);
@@ -1134,16 +1136,48 @@ body {
 }
 
 /* 1–2) LOGA + NÁZVY (2 šestiny) – shrinkable řádky */
-.team-names-centered{
+.team-names-centered {
   grid-column:1 / -1;
   grid-row:1 / 3;
   display:grid;
   grid-template-columns:1fr 1fr;                /* home / away */
   grid-template-rows:minmax(0,1fr) minmax(0,1fr); /* 1: loga, 2: názvy -> oba shrinkable */
   gap:clamp(4px,1vh,16px);
+  row-gap: var(--logo-name-gap);
   align-items:stretch;
   justify-items:center;
 }
+
+@supports not (display: contents) {
+  .team-names-centered > .team-block {
+    gap: var(--logo-name-gap);
+  }
+}
+
+
+/* --- FIX: iPhone/Safari – loga posunutá vlevo ------------------------------
+   .team-block obaluje logo + název, takže děti nebyly grid-items.
+   Uděláme z .team-block „průchozí“ element (display: contents),
+   a přidáme fallback, který centruje obsah uvnitř wrapperu.
+---------------------------------------------------------------------------*/
+.team-names-centered > .team-block { display: contents; }
+
+@supports not (display: contents) {
+  .team-names-centered { grid-template-rows: auto auto; }
+  .team-names-centered > .team-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(22px, 1.6vh, 18px);
+  }
+  .team-names-centered > .team-block .team-logo { margin: 0 auto; display: block; }
+}
+
+/* Extra safety pro Safari (zarovnání obrázků) */
+.team-logo { display: block; margin-inline: auto; }
+.team-logo img { display: block; margin: 20 auto; }
+
 
 /* Umístění v mřížce */
 .home-logo{grid-column:1;grid-row:1;justify-self:center;align-self:center;}
