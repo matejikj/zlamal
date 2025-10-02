@@ -1109,6 +1109,43 @@ body {
   justify-items:center;
 }
 
+/* === LOGO baseline fix (iOS/desktop) ===================================== */
+/* Vyplň buňku gridu a zarovnej obrázek na SPODNÍ HRANU (stejná baseline) */
+.home-logo,
+.away-logo {
+  align-self: stretch;          /* ať wrapper vyplní celý řádek gridu */
+  display: grid;
+  place-items: end center;      /* vertikálně dolů, horizontálně na střed */
+  padding-bottom: clamp(2px, 0.8dvh, 12px); /* malý spodní nádech */
+}
+
+/* Obrázek loga: žádné mezery, držet poměr stran, kotvit na spodek */
+.home-logo img,
+.away-logo img {
+  display: block;               /* odstraní inline-gap okolo <img> */
+  width: auto;
+  max-height: 80%;              /* rezerva nad logem kvůli různým poměrům */
+  object-fit: contain;
+  object-position: center bottom; /* KOTVA = spodní střed */
+  margin: 0;
+}
+
+/* pro prohlížeče s dvh zachovávej předchozí logiku velikosti */
+@supports (height: 100dvh) {
+  .home-logo img, .away-logo img {
+    max-height: min(80%, 12dvh);
+  }
+}
+
+/* volitelné: jemné vyrovnání, když má některé PNG extra průhledný spodek */
+:root {
+  --logo-y-home: 0%;            /* zvedni/niž o ±2–6 % když je potřeba */
+  --logo-y-away: 0%;
+}
+.home-logo img  { transform: translateY(var(--logo-y-home)); }
+.away-logo img  { transform: translateY(var(--logo-y-away)); }
+
+
 /* Umístění v mřížce */
 .home-logo{grid-column:1;grid-row:1;justify-self:center;align-self:center;}
 .home-name{grid-column:1;grid-row:2;justify-self:center;align-self:start;}
