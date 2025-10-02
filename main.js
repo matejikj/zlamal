@@ -278,7 +278,7 @@
         },
         {
           "name": "1.FC Köln",
-          "path": "logos/Germany - Bundesliga/1.FC Köln.png",
+          "path": "logos/Germany - Bundesliga/1.FC Koln.png",
           "color": "#E30613",
           "short": "KOE"
         },
@@ -314,7 +314,7 @@
         },
         {
           "name": "Borussia Mönchengladbach",
-          "path": "logos/Germany - Bundesliga/Borussia Mönchengladbach.png",
+          "path": "logos/Germany - Bundesliga/Borussia Monchengladbach.png",
           "color": "#00A652",
           "short": "BMG"
         },
@@ -486,7 +486,7 @@
         },
         {
           "name": "Atlético de Madrid",
-          "path": "logos/Spain - LaLiga/Atlético de Madrid.png",
+          "path": "logos/Spain - LaLiga/Atletico de Madrid.png",
           "color": "#C72C2C",
           "short": "ATM"
         },
@@ -504,7 +504,7 @@
         },
         {
           "name": "Deportivo Alavés",
-          "path": "logos/Spain - LaLiga/Deportivo Alavés.png",
+          "path": "logos/Spain - LaLiga/Deportivo Alaves.png",
           "color": "#1E6BD6",
           "short": "ALA"
         },
@@ -558,7 +558,7 @@
         },
         {
           "name": "Real Betis Balompié",
-          "path": "logos/Spain - LaLiga/Real Betis Balompié.png",
+          "path": "logos/Spain - LaLiga/Real Betis Balompiee.png",
           "color": "#128A2E",
           "short": "RBB"
         },
@@ -1747,10 +1747,10 @@ function shrinkTextToFit(el, minPx = 10) {
       e.preventDefault();
       const type = els.eventType()?.value;
       const team = els.eventTeam()?.value;
-      // const player = els.eventPlayer()?.value.trim();
-      const player = "emerick-aubameyang";
-      // const minute = els.eventMinute()?.value;
-      const minute = 20;
+      const player = els.eventPlayer()?.value.trim();
+      // const player = "emerick-aubameyang";
+      const minute = els.eventMinute()?.value;
+      // const minute = 20;
       const extra = els.eventExtra()?.value;
       if (!player || !minute) { notify("Vyplňte jméno hráče a minutu!", "error"); return; }
       if (store.getState().events.length >= DEFAULTS.maxEvents) {
