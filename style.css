@@ -1345,8 +1345,8 @@ body {
   grid-template-columns: 1fr 1fr;
   align-items: start;                         /* začínáme odshora uvnitř vlastní oblasti */
   row-gap: clamp(4px, 1vh, 12px);
-  column-gap: clamp(6px, 1.7vw, 14px);
-  padding-top: clamp(10px, 1.4vh, 16px);      /* <<< hlavní sražení dolů */
+  column-gap: clamp(6px, 2vw, 24px);
+  padding-top: clamp(10px, 2.8vh, 36px);      /* <<< hlavní sražení dolů */
 }
 
 .match-graphic .overlay-content .team-names-centered .team-block{
@@ -1359,7 +1359,7 @@ body {
   display: block;
   width: auto;
   max-width: 92%;
-  max-height: min(9vh, 9dvh);               /* o chlup menší než dřív, ať je víc místa */
+  max-height: min(10vh, 10dvh);               /* o chlup menší než dřív, ať je víc místa */
   object-fit: contain;
   margin: 0;
   transform: translateY(0) !important;
