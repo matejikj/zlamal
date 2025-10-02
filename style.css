@@ -1076,26 +1076,43 @@ body {
 
 
 /* Preview styles – CENTROVANÝ LAYOUT (mobile fix: shrinkable rows, robust logo/img selektory) */
+/* 1) Preview kontejner – ať není uměle vysoký */
 .preview-container{
-  display:flex;justify-content:center;align-items:center;min-height:600px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height: 0;              /* dříve 600px => dělalo velké "bílé" místo */
+  padding-block: clamp(8px, 2vh, 24px);
 }
+
+/* 2) Match card – fluidní šířka, výšku řídí aspect-ratio */
 .match-graphic{
-  position:relative;border-radius:var(--radius-lg);overflow:hidden;
-  box-shadow:var(--shadow-lg);border:1px solid var(--color-card-border);
+  position:relative;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  border:1px solid var(--color-card-border);
   transition:all var(--duration-normal) var(--ease-standard);
+
+  /* nově: šířka podle viewportu, se stropem kvůli desktopu */
+  width: min(92vw, 560px);
 }
 
-/* náhledové rozměry dle poměru */
-.match-graphic.aspect-9-16{width:320px;height:568px;}
-.match-graphic.aspect-4-5{width:400px;height:500px;}
+/* místo fixních px rozměrů použij aspect-ratio */
+.match-graphic.aspect-9-16{ aspect-ratio: 9 / 16; }
+.match-graphic.aspect-4-5 { aspect-ratio: 4 / 5; }
 
-.background-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
+/* iOS toolbar friendly: preferuj dvh, ale není nutné nastavovat výšku – jen kosmetika okrajů */
+@supports (height: 100dvh) {
+  .preview-container{ padding-block: clamp(8px, 2dvh, 24px); }
+}
 
-/* průhledný tmavý overlay pro čitelnost textu */
-.overlay{
-  position:absolute;inset:0;z-index:2;
+/* background & overlay zůstávají stejné */
+.background-canvas{ position:absolute; inset:0; width:100%; height:100%; z-index:1; }
+.overlay{ position:absolute; inset:0; z-index:2;
   background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.35) 100%);
 }
+
 
 /* mřížka 2x6 – dvě kolony (HOME/AWAY) a 6 řádků (každá „šestina“ výšky) */
 .overlay-content{
@@ -1317,6 +1334,40 @@ body {
 .match-graphic .team-name {
   display: block;
   line-height: 1.1;
+}
+
+/* === iOS fix: logo přesně nad názvem, stejné vycentrování pro HOME/AWAY === */
+.match-graphic .overlay-content .team-names-centered{
+  grid-column: 1 / -1;
+  grid-row: 1 / span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: clamp(4px, 1vh, 12px);
+}
+
+.match-graphic .overlay-content .team-names-centered .team-block{
+  display: grid;
+  grid-template-rows: auto auto;      /* [logo] nad [název] */
+  justify-items: center;
+}
+
+.match-graphic .overlay-content .team-names-centered .team-logo{
+  display: block;                     /* zruší inline baseline mezery */
+  width: auto;
+  max-width: 92%;
+  max-height: min(12vh, 12dvh);
+  object-fit: contain;
+  margin: 0;
+  transform: translateY(0) !important;
+}
+
+.match-graphic .overlay-content .team-names-centered .team-name{
+  text-align: center;
+  margin-top: clamp(2px, .6vh, 6px);
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 
