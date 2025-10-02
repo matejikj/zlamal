@@ -147,6 +147,38 @@
 
 }
 
+
+/* iOS: nesahej na velikost textu a používej dynamické viewport jednotky */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* Přednostně používej dvh (dynamic viewport height) – řeší iOS 100vh bug */
+@supports (height: 100dvh) {
+  /* mezery v gridu a výškové limity podle reálné výšky obrazovky */
+  .overlay-content { gap: clamp(4px, 1.2dvh, 16px); }
+  .events-section-centered { gap: clamp(6px, 1.2dvh, 18px); }
+
+  /* loga a typografie škáluj dvh místo vh */
+  .home-logo, .away-logo,
+  .home-logo img, .away-logo img { max-height: min(100%, 12dvh); }
+
+  .score { font-size: clamp(24px, min(6.8dvh, 15vw), 90px); }
+  .score-separator { font-size: clamp(16px, min(3.8dvh, 9vw), 60px); }
+
+  /* status dole – stabilní i s iOS toolbary */
+  .status-text { font-size: clamp(12px, min(2dvh, 4.3vw), 20px); }
+}
+
+/* Event řádky: vždy JEDEN řádek, bez štěpení slov – JS je případně zmenší */
+.event-line{
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
+  min-width: 0;
+}
+
+
+
 /* Dark mode colors */
 @media (prefers-color-scheme: dark) {
   :root {

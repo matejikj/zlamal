@@ -1063,17 +1063,21 @@ function shrinkTextToFit(el, minPx = 10) {
       : `${body} ${icon(e.type)}`;      // AWAY: ikona vpravo
   };
 
-  const addLine = (parent, text, align) => {
-    const div = document.createElement("div");
-    div.className = "event-line";
-    div.style.fontSize = "6px";
-    div.style.textAlign = align;
-    div.textContent = text;
-    parent.appendChild(div);
+const addLine = (parent, text, align) => {
+  const div = document.createElement("div");
+  div.className = "event-line";
+  div.style.fontSize = "6px";
+  div.style.textAlign = align;
+  div.style.whiteSpace = "nowrap";    // jistota 1 řádku
+  div.textContent = text;
+  parent.appendChild(div);
 
-    // počkej 1 frame, pak změř a zmenši (ať má element reálnou šířku)
-    requestAnimationFrame(() => shrinkTextToFit(div, minPx));
-  };
+  // iOS fix: shrink až PO načtení fontů a 1 frame po vložení do DOMu
+  (document.fonts?.ready ? document.fonts.ready : Promise.resolve()).then(() => {
+    requestAnimationFrame(() => shrinkTextToFit(div, 10));
+  });
+};
+
 
   // HOME (v levé polovině, zarovnáno doprava)
   homes.forEach((e) => addLine(homeBox, mkText(e, "home"), "right"));
