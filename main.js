@@ -1205,7 +1205,8 @@
     );
 
 
-    const padCoef = state.aspectRatio === "9:16" ? 2 : 12;
+    // const padCoef = state.aspectRatio === "9:16" ? 2 : 12;
+    const padCoef = state.aspectRatio === "9:16" ? 18 : 30;
 
 
     let yName = Math.round(
