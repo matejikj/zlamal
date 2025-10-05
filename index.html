@@ -1,176 +1,225 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
-  <title>Match Form – Lite</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <title>Match Form – Lite</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="container">
-    <header class="header">
-      <h1>Tvorba zápasu (form-only)</h1>
-      <p>Lehká verze bez náhledu a exportu. Podklad lze nahrát jako metadata.</p>
-    </header>
+    <div class="container">
+        <header class="header">
+            <h1>Tvorba zápasu (form-only)</h1>
+            <p>Lehká verze bez náhledu a exportu. Podklad lze nahrát jako metadata.</p>
+        </header>
 
-    <div class="main-content one-column">
-      <!-- Formulář -->
-      <div class="form-section">
-        <div class="card">
-          <div class="card__header">
-            <h2>Nastavení zápasu</h2>
-          </div>
+        <div class="main-content one-column">
+            <!-- Formulář -->
+            <div class="form-section">
+                <div class="card">
+                    <div class="card__header">
+                        <h2>Nastavení zápasu</h2>
+                    </div>
 
-          <div class="card__body">
-            <!-- Podklad (jen metadata, bez náhledu) -->
-            <div class="section-header">
-              <h3>Podklad</h3>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label">Nahrát pozadí</label>
-                <input type="file" id="backgroundImage" class="form-control" accept="image/*" />
-                <div id="backgroundInfo" class="helptext muted"></div>
-              </div>
-              <div class="form-group">
-                <label class="form-label">&nbsp;</label>
-                <button type="button" id="removeBackground" class="btn btn--outline" disabled>Odebrat pozadí</button>
-              </div>
-            </div>
+                    <div class="card__body">
+                        <!-- Podklad (jen metadata, bez náhledu) -->
+                        <div class="section-header">
+                            <h3>Podklad</h3>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Nahrát pozadí</label>
+                                <input type="file" id="backgroundImage" class="form-control" accept="image/*" />
+                                <div id="backgroundInfo" class="helptext muted"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">&nbsp;</label>
+                                <button type="button" id="removeBackground" class="btn btn--outline" disabled>Odebrat
+                                    pozadí</button>
+                            </div>
+                        </div>
 
-            <!-- Formát (ponecháno jako metadata) -->
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label">Poměr stran (meta)</label>
-                <select id="aspectRatio" class="form-control">
-                  <option value="9:16" selected>9:16</option>
-                  <option value="4:5">4:5</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Liga</label>
-                <select id="league" class="form-control"></select>
-              </div>
-            </div>
+                        <!-- Formát (ponecháno jako metadata) -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Poměr stran (meta)</label>
+                                <select id="aspectRatio" class="form-control">
+                                    <option value="9:16" selected>9:16</option>
+                                    <option value="4:5">4:5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Liga</label>
+                                <select id="league" class="form-control"></select>
+                            </div>
+                        </div>
 
-            <!-- Týmy -->
-            <div class="section-header">
-              <h3>Týmy</h3>
-            </div>
+                        <!-- Týmy -->
+                        <div class="section-header">
+                            <h3>Týmy</h3>
+                        </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-checkbox">
-                  <input type="checkbox" id="useHomeCustom" />
-                  Vlastní domácí tým
-                </label>
-                <select id="homeTeamSelect" class="form-control"></select>
-                <input type="text" id="homeTeamName" class="form-control" placeholder="Název domácích" style="display:none;" />
-                <label class="form-label">Barva domácích</label>
-                <input type="color" id="homeColor" class="form-control" value="#ffffff" />
-              </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" id="useHomeCustom" />
+                                    Vlastní domácí tým
+                                </label>
+                                <select id="homeTeamSelect" class="form-control"></select>
+                                <input type="text" id="homeTeamName" class="form-control" placeholder="Název domácích"
+                                    style="display:none;" />
+                                <label class="form-label">Barva domácích</label>
+                                <input type="color" id="homeColor" class="form-control" value="#ffffff" />
+                            </div>
 
-              <div class="form-group">
-                <label class="form-checkbox">
-                  <input type="checkbox" id="useAwayCustom" />
-                  Vlastní hostující tým
-                </label>
-                <select id="awayTeamSelect" class="form-control"></select>
-                <input type="text" id="awayTeamName" class="form-control" placeholder="Název hostů" style="display:none;" />
-                <label class="form-label">Barva hostů</label>
-                <input type="color" id="awayColor" class="form-control" value="#ffffff" />
-              </div>
-            </div>
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" id="useAwayCustom" />
+                                    Vlastní hostující tým
+                                </label>
+                                <select id="awayTeamSelect" class="form-control"></select>
+                                <input type="text" id="awayTeamName" class="form-control" placeholder="Název hostů"
+                                    style="display:none;" />
+                                <label class="form-label">Barva hostů</label>
+                                <input type="color" id="awayColor" class="form-control" value="#ffffff" />
+                            </div>
+                        </div>
 
-            <!-- Skóre -->
-            <div class="section-header">
-              <h3>Skóre</h3>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label">Domácí</label>
-                <input type="number" id="homeScore" class="form-control" min="0" value="0" />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Hosté</label>
-                <input type="number" id="awayScore" class="form-control" min="0" value="0" />
-              </div>
-            </div>
+                        <!-- Skóre -->
+                        <div class="section-header">
+                            <h3>Skóre</h3>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Domácí</label>
+                                <input type="number" id="homeScore" class="form-control" min="0" value="0" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Hosté</label>
+                                <input type="number" id="awayScore" class="form-control" min="0" value="0" />
+                            </div>
+                        </div>
 
-            <!-- Události -->
-            <div class="section-header">
-              <h3>Události</h3>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label">Typ</label>
-                <select id="eventType" class="form-control">
-                  <option value="goal">Gól</option>
-                  <option value="ownGoal">Vlastní gól</option>
-                  <option value="yellow">Žlutá</option>
-                  <option value="twoYellow">Druhá žlutá</option>
-                  <option value="red">Červená</option>
-                  <option value="sub">Střídání</option>
-                  <option value="pen">Penalta</option>
-                </select>
-              </div>
+                        <!-- Události -->
+                        <div class="section-header">
+                            <h3>Události</h3>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Typ</label>
+                                <select id="eventType" class="form-control">
+                                    <option value="goal">Gól</option>
+                                    <option value="ownGoal">Vlastní gól</option>
+                                    <option value="yellow">Žlutá</option>
+                                    <option value="twoYellow">Druhá žlutá</option>
+                                    <option value="red">Červená</option>
+                                    <option value="sub">Střídání</option>
+                                    <option value="pen">Penalta</option>
+                                </select>
+                            </div>
 
-              <div class="form-group">
-                <label class="form-label">Strana</label>
-                <select id="eventTeam" class="form-control">
-                  <option value="home">Domácí</option>
-                  <option value="away">Hosté</option>
-                </select>
-              </div>
+                            <div class="form-group">
+                                <label class="form-label">Strana</label>
+                                <select id="eventTeam" class="form-control">
+                                    <option value="home">Domácí</option>
+                                    <option value="away">Hosté</option>
+                                </select>
+                            </div>
 
-              <div class="form-group">
-                <label class="form-label">Hráč / text</label>
-                <input type="text" id="eventPlayer" class="form-control" placeholder="Jméno / popis" />
-              </div>
+                            <div class="form-group">
+                                <label class="form-label">Hráč / text</label>
+                                <input type="text" id="eventPlayer" class="form-control" placeholder="Jméno / popis" />
+                            </div>
 
-              <div class="form-group">
-                <label class="form-label">Minuta</label>
-                <div class="inline">
-                  <input type="number" id="eventMinute" class="form-control" min="0" value="1" />
-                  <input type="text" id="eventExtra" class="form-control" placeholder="+? (volitelné)" />
+                            <div class="form-group">
+                                <label class="form-label">Minuta</label>
+                                <div class="inline">
+                                    <input type="number" id="eventMinute" class="form-control" min="0" value="1" />
+                                    <input type="text" id="eventExtra" class="form-control"
+                                        placeholder="+? (volitelné)" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">&nbsp;</label>
+                                <button type="button" id="addEventBtn" class="btn btn--primary">Přidat událost</button>
+                            </div>
+                        </div>
+
+                        <div id="eventsContainer" class="events-list"></div>
+
+                        <!-- Další nastavení -->
+                        <div class="section-header">
+                            <h3>Nastavení</h3>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" id="useShortNames" />
+                                    Krátké názvy týmů (zkratky)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Status</label>
+                                <input type="text" id="statusText" class="form-control"
+                                    placeholder="LIVE / HALF-TIME / FULL TIME" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <button type="button" id="resetBtn" class="btn btn--outline">Reset</button>
+                    </div>
                 </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">&nbsp;</label>
-                <button type="button" id="addEventBtn" class="btn btn--primary">Přidat událost</button>
-              </div>
             </div>
 
-            <div id="eventsContainer" class="events-list"></div>
-
-            <!-- Další nastavení -->
-            <div class="section-header">
-              <h3>Nastavení</h3>
+            <!-- Import JSON -->
+            <div class="card">
+                <div class="card__header">
+                    <h2>Import JSON</h2>
+                </div>
+                <div class="card__body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Soubor (.json)</label>
+                            <input type="file" id="importJsonFile" class="form-control" accept="application/json" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Nebo vlož JSON (text)</label>
+                            <textarea id="importJsonText" class="form-control" rows="4"
+                                placeholder='{"meta":{...},"teams":{...}}'></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <button id="importJsonFromTextBtn" class="btn btn--primary">Načíst z textu</button>
+                        </div>
+                        <div class="form-group">
+                            <div id="importJsonError" class="helptext" style="color:#ff7676;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-checkbox">
-                  <input type="checkbox" id="useShortNames" />
-                  Krátké názvy týmů (zkratky)
-                </label>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Status</label>
-                <input type="text" id="statusText" class="form-control" placeholder="LIVE / HALF-TIME / FULL TIME" />
-              </div>
-            </div>
-          </div>
 
-          <div class="card__footer">
-            <button type="button" id="resetBtn" class="btn btn--outline">Reset</button>
-          </div>
+            <!-- JSON náhled + stažení -->
+            <div class="card">
+                <div class="card__header">
+                    <h2>JSON náhled</h2>
+                </div>
+                <div class="card__body">
+                    <pre id="jsonPreview" class="json-pre" aria-live="polite"></pre>
+                </div>
+                <div class="card__footer">
+                    <button id="downloadJsonBtn" class="btn btn--primary">Stáhnout JSON</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- POUZE logika formuláře (bez renderu/exportu) -->
-  <script src="main.js"></script>
+    <!-- POUZE logika formuláře (bez renderu/exportu) -->
+    <script src="main.js"></script>
 </body>
+
 </html>
