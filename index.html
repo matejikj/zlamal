@@ -215,6 +215,41 @@
                     <button id="downloadJsonBtn" class="btn btn--primary">Stáhnout JSON</button>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Export PNG</h2>
+                    <p class="muted">Vygeneruje obrázek podle aktuálního JSONu. Každý formát má vlastní nastavení.</p>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Export 9:16 (1080×1920)</label>
+                            <button id="btnExport916" class="btn btn--primary">Vytvořit PNG 9:16</button>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Export 4:5 (1080×1350)</label>
+                            <button id="btnExport45" class="btn btn--primary">Vytvořit PNG 4:5</button>
+                        </div>
+                    </div>
+                    <p class="muted">Pozadí se bere z „Podklad → Obrázek“ (pokud je nahrán). Název souboru:
+                        <em>fotbal-{poměr}-{HOME}-vs-{AWAY}.png</em></p>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Náhled (podle zvoleného Poměru stran)</label>
+                    <button id="btnPreview" class="btn btn--outline">Zobrazit náhled</button>
+                </div>
+            </div>
+
+<div id="previewWrap" class="export-preview" style="display:none;">
+  <div id="previewFrame" class="preview-frame ratio-916">
+    <img id="exportPreview" alt="Náhled exportu" />
+  </div>
+</div>
+
         </div>
     </div>
 

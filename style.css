@@ -187,3 +187,30 @@ body {
   border-radius: 10px;
   font: 500 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
+
+
+.export-preview {
+  margin-top: var(--space-4);
+  display: flex;
+  justify-content: center;
+}
+
+.preview-frame {
+  width: 260px;                     /* ← velikost okýnka */
+  aspect-ratio: 9 / 16;             /* default */
+  background: #0f0f12;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.preview-frame.ratio-45 {
+  aspect-ratio: 4 / 5;
+}
+
+.preview-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                 /* PNG se zmenší do rámu */
+  display: block;
+}
