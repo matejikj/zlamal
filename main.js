@@ -1183,28 +1183,44 @@
     const colGap = Math.max(8, cfg?.events?.colGap ?? baseColGap);
     const startY = areas.events.y + Math.max(pad, Math.round((areas.events.h - totalHeightFor(evSize)) / 2)) + evSize;
 
-    events.forEach((ev, idx) => {
-      const minute = String(ev.minute ?? "");
-      const extra = ev.extra ? `+${ev.extra}` : "";
-      const mm = minute ? `${minute}'${extra}` : "";
-      const pName = truncate(ev.player || ev.playerName || "", 20);
-      const sym = eventSymbol(ev.type || ev.kind);
+events.forEach((ev, idx) => {
+  const minute = String(ev.minute ?? "");
+  const extra = ev.extra ? `+${ev.extra}` : "";
+  const mm = minute ? `${minute}'${extra}` : "";
+  const pName = truncate(ev.player || ev.playerName || "", 20);
+  const sym = eventSymbol(ev.type || ev.kind);
 
-      const txt = [mm, sym, pName].filter(Boolean).join("  ");
-      const y = startY + idx * evLH;
+  const txt = [mm, sym, pName].filter(Boolean).join("  ");
+  const y = startY + idx * evLH;
 
-      // HOME doprava od středu, AWAY doleva od středu
-      if ((ev.side || ev.team || "").toLowerCase().startsWith("h")) {
-        // pravé zarovnání k (midX - colGap)
-        drawShadowedText(ctx, txt, midX - colGap, y, "right");
-      } else if ((ev.side || ev.team || "").toLowerCase().startsWith("a")) {
-        // levé zarovnání k (midX + colGap)
-        drawShadowedText(ctx, txt, midX + colGap, y, "left");
-      } else {
-        // když není side, dáme do středu (fallback)
-        drawShadowedText(ctx, txt, midX, y, "center");
-      }
-    });
+  // změř skutečnou šířku řádku
+  const wTxt = ctx.measureText(txt).width;
+
+  // kotevní body s garancí, že text zůstane v [pad, W - pad]
+  const minX = pad;
+  const maxX = W - pad;
+
+  const isHome = (ev.side || ev.team || "").toLowerCase().startsWith("h");
+  const isAway = (ev.side || ev.team || "").toLowerCase().startsWith("a");
+
+  if (isHome) {
+    // pravé zarovnání – text jde doleva od kotvy
+    // kotva musí splnit: anchor - wTxt >= minX  =>  anchor >= minX + wTxt
+    const anchorDefault = midX - colGap;
+    const anchor = Math.max(anchorDefault, minX + wTxt);
+    drawShadowedText(ctx, txt, anchor, y, "right");
+  } else if (isAway) {
+    // levé zarovnání – text jde doprava od kotvy
+    // kotva musí splnit: anchor + wTxt <= maxX  =>  anchor <= maxX - wTxt
+    const anchorDefault = midX + colGap;
+    const anchor = Math.min(anchorDefault, maxX - wTxt);
+    drawShadowedText(ctx, txt, anchor, y, "left");
+  } else {
+    // fallback – do středu
+    drawShadowedText(ctx, txt, midX, y, "center");
+  }
+});
+
 
     // --- status (spodní 1/10, centrovaně) ----------------------------
     const statusText = j.statusText || "";
