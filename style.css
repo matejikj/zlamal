@@ -1,1679 +1,189 @@
+/* ====== Design tokens (minimum) ====== */
 :root {
-    --logo-name-gap: clamp(28px, 2.6vh, 42px);
+  --bg: #0b0c0f;
+  --fg: #e7e9ee;
+  --muted: #a3a9b6;
+  --card: #12141a;
+  --card-border: #1c1f27;
+  --accent: #7aa2ff;
+  --accent-2: #4cc3a6;
+  --danger: #ff6b6b;
 
-  /* Primitive Color Tokens */
-  --color-white: rgba(255, 255, 255, 1);
-  --color-black: rgba(0, 0, 0, 1);
-  --color-cream-50: rgba(252, 252, 249, 1);
-  --color-cream-100: rgba(255, 255, 253, 1);
-  --color-gray-200: rgba(245, 245, 245, 1);
-  --color-gray-300: rgba(167, 169, 169, 1);
-  --color-gray-400: rgba(119, 124, 124, 1);
-  --color-slate-500: rgba(98, 108, 113, 1);
-  --color-brown-600: rgba(94, 82, 64, 1);
-  --color-charcoal-700: rgba(31, 33, 33, 1);
-  --color-charcoal-800: rgba(38, 40, 40, 1);
-  --color-slate-900: rgba(19, 52, 59, 1);
-  --color-teal-300: rgba(50, 184, 198, 1);
-  --color-teal-400: rgba(45, 166, 178, 1);
-  --color-teal-500: rgba(33, 128, 141, 1);
-  --color-teal-600: rgba(29, 116, 128, 1);
-  --color-teal-700: rgba(26, 104, 115, 1);
-  --color-teal-800: rgba(41, 150, 161, 1);
-  --color-red-400: rgba(255, 84, 89, 1);
-  --color-red-500: rgba(192, 21, 47, 1);
-  --color-orange-400: rgba(230, 129, 97, 1);
-  --color-orange-500: rgba(168, 75, 47, 1);
+  --radius: 14px;
+  --shadow: 0 6px 28px rgba(0,0,0,0.35);
 
-  /* RGB versions for opacity control */
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-  --color-slate-500-rgb: 98, 108, 113;
-  --color-red-500-rgb: 192, 21, 47;
-  --color-red-400-rgb: 255, 84, 89;
-  --color-orange-500-rgb: 168, 75, 47;
-  --color-orange-400-rgb: 230, 129, 97;
+  --sp-1: 6px;
+  --sp-2: 10px;
+  --sp-3: 16px;
+  --sp-4: 24px;
+  --sp-5: 36px;
 
-  /* Background color tokens (Light Mode) */
-  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
-  --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
-  --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
-  --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
-  --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
-  --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
-  --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
-  --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
-
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
-  --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
-  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
-
-  /* Common style patterns */
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-  --status-bg-opacity: 0.15;
-  --status-border-opacity: 0.25;
-  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-  /* RGB versions for opacity control */
-  --color-success-rgb: 33, 128, 141;
-  --color-error-rgb: 192, 21, 47;
-  --color-warning-rgb: 168, 75, 47;
-  --color-info-rgb: 98, 108, 113;
-
-  /* Typography */
-  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, monospace;
-  --font-size-xs: 9px;
-  --font-size-sm: 10px;
-  --font-size-base: 11px;
-  --font-size-md: 12px;
-  --font-size-lg: 16px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 20px;
-  --font-size-3xl: 24px;
-  --font-size-4xl: 30px;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 550;
-  --font-weight-bold: 600;
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-  --letter-spacing-tight: -0.01em;
-
-  /* Spacing */
-  --space-0: 0;
-  --space-1: 1px;
-  --space-2: 2px;
-  --space-4: 4px;
-  --space-6: 6px;
-  --space-8: 8px;
-  --space-10: 10px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-20: 20px;
-  --space-24: 24px;
-  --space-32: 32px;
-
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-base: 8px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-  --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
-    0 2px 4px -1px rgba(0, 0, 0, 0.02);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
-    0 4px 6px -2px rgba(0, 0, 0, 0.02);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
-
-  /* Animation */
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* Layout */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-
-    --logo-size: 110px;
-
+  --fs-100: 12px;
+  --fs-200: 13px;
+  --fs-300: 14px;
+  --fs-400: 16px;
+  --fs-500: 18px;
+  --fs-600: 22px;
+  --fs-700: 28px;
 }
 
-
-/* iOS: nesahej na velikost textu a používej dynamické viewport jednotky */
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-
-/* Přednostně používej dvh (dynamic viewport height) – řeší iOS 100vh bug */
-@supports (height: 100dvh) {
-  /* mezery v gridu a výškové limity podle reálné výšky obrazovky */
-  .overlay-content { gap: clamp(4px, 1.2dvh, 16px); }
-  .events-section-centered { gap: clamp(6px, 1.2dvh, 18px); }
-
-  /* loga a typografie škáluj dvh místo vh */
-  .home-logo, .away-logo,
-  .home-logo img, .away-logo img { max-height: min(100%, 12dvh); }
-
-  .score { font-size: clamp(24px, min(6.8dvh, 15vw), 90px); }
-  .score-separator { font-size: clamp(16px, min(3.8dvh, 9vw), 60px); }
-
-  /* status dole – stabilní i s iOS toolbary */
-  .status-text { font-size: clamp(12px, min(2dvh, 4.3vw), 20px); }
-}
-
-/* Event řádky: vždy JEDEN řádek, bez štěpení slov – JS je případně zmenší */
-.event-line{
-  white-space: nowrap;
-  word-break: keep-all;
-  overflow-wrap: normal;
-  hyphens: none;
-  min-width: 0;
-}
-
-
-
-/* Dark mode colors */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* RGB versions for opacity control (Dark Mode) */
-    --color-gray-400-rgb: 119, 124, 124;
-    --color-teal-300-rgb: 50, 184, 198;
-    --color-gray-300-rgb: 167, 169, 169;
-    --color-gray-200-rgb: 245, 245, 245;
-
-    /* Background color tokens (Dark Mode) */
-    --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
-    --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
-    --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
-    --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
-    --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
-    --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
-    --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
-    --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-
-    /* Semantic Color Tokens (Dark Mode) */
-    --color-background: var(--color-charcoal-700);
-    --color-surface: var(--color-charcoal-800);
-    --color-text: var(--color-gray-200);
-    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-    --color-primary: var(--color-teal-300);
-    --color-primary-hover: var(--color-teal-400);
-    --color-primary-active: var(--color-teal-800);
-    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
-    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
-    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-error: var(--color-red-400);
-    --color-success: var(--color-teal-300);
-    --color-warning: var(--color-orange-400);
-    --color-info: var(--color-gray-300);
-    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-    --color-btn-primary-text: var(--color-slate-900);
-    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
-    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-    --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
-
-    /* Common style patterns - updated for dark mode */
-    --focus-ring: 0 0 0 3px var(--color-focus-ring);
-    --focus-outline: 2px solid var(--color-primary);
-    --status-bg-opacity: 0.15;
-    --status-border-opacity: 0.25;
-    --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-    /* RGB versions for dark mode */
-    --color-success-rgb: var(--color-teal-300-rgb);
-    --color-error-rgb: var(--color-red-400-rgb);
-    --color-warning-rgb: var(--color-orange-400-rgb);
-    --color-info-rgb: var(--color-gray-300-rgb);
-  }
-}
-
-/* Data attribute for manual theme switching */
-[data-color-scheme="dark"] {
-  /* RGB versions for opacity control (dark mode) */
-  --color-gray-400-rgb: 119, 124, 124;
-  --color-teal-300-rgb: 50, 184, 198;
-  --color-gray-300-rgb: 167, 169, 169;
-  --color-gray-200-rgb: 245, 245, 245;
-
-  /* Colorful background palette - Dark Mode */
-  --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
-  --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
-  --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
-  --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
-  --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
-  --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
-  --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
-  --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-
-  /* Semantic Color Tokens (Dark Mode) */
-  --color-background: var(--color-charcoal-700);
-  --color-surface: var(--color-charcoal-800);
-  --color-text: var(--color-gray-200);
-  --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-  --color-primary: var(--color-teal-300);
-  --color-primary-hover: var(--color-teal-400);
-  --color-primary-active: var(--color-teal-800);
-  --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
-  --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
-  --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
-  --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-  --color-error: var(--color-red-400);
-  --color-success: var(--color-teal-300);
-  --color-warning: var(--color-orange-400);
-  --color-info: var(--color-gray-300);
-  --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-  --color-btn-primary-text: var(--color-slate-900);
-  --color-card-border: rgba(var(--color-gray-400-rgb), 0.15);
-  --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-  --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
-
-  /* Common style patterns - updated for dark mode */
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-  --status-bg-opacity: 0.15;
-  --status-border-opacity: 0.25;
-  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-  /* RGB versions for dark mode */
-  --color-success-rgb: var(--color-teal-300-rgb);
-  --color-error-rgb: var(--color-red-400-rgb);
-  --color-warning-rgb: var(--color-orange-400-rgb);
-  --color-info-rgb: var(--color-gray-300-rgb);
-}
-
-[data-color-scheme="light"] {
-  /* RGB versions for opacity control (light mode) */
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
-  --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
-
-  /* RGB versions for light mode */
-  --color-success-rgb: var(--color-teal-500-rgb);
-  --color-error-rgb: var(--color-red-500-rgb);
-  --color-warning-rgb: var(--color-orange-500-rgb);
-  --color-info-rgb: var(--color-slate-500-rgb);
-}
-
-/* Base styles */
-html {
-  font-size: var(--font-size-base);
-  font-family: var(--font-family-base);
-  line-height: var(--line-height-normal);
-  color: var(--color-text);
-  background-color: var(--color-background);
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
+/* ====== Reset (light) ====== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 body {
   margin: 0;
-  padding: 0;
+  font: 400 var(--fs-400)/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: linear-gradient(180deg, #0b0c10 0%, #0b0c0f 100%);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+/* ====== Layout ====== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--sp-4) var(--sp-3);
 }
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.header {
+  margin-bottom: var(--sp-4);
+}
+.header h1 {
+  margin: 0 0 var(--sp-1);
+  font-size: var(--fs-700);
+}
+.header p {
   margin: 0;
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
-  color: var(--color-text);
-  letter-spacing: var(--letter-spacing-tight);
+  color: var(--muted);
 }
 
-h1 {
-  font-size: var(--font-size-4xl);
-}
-h2 {
-  font-size: var(--font-size-3xl);
-}
-h3 {
-  font-size: var(--font-size-2xl);
-}
-h4 {
-  font-size: var(--font-size-xl);
-}
-h5 {
-  font-size: var(--font-size-lg);
-}
-h6 {
-  font-size: var(--font-size-md);
+.main-content.one-column {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
 }
 
-p {
-  margin: 0 0 var(--space-16) 0;
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-standard);
+.card__header, .card__footer {
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--card-border);
 }
+.card__footer { border-top: 1px solid var(--card-border); border-bottom: none; }
+.card__body { padding: var(--sp-4); }
+.card h2 { margin: 0; font-size: var(--fs-600); }
 
-a:hover {
-  color: var(--color-primary-hover);
+/* ====== Form ====== */
+.form-section { width: 100%; }
+.section-header { margin: var(--sp-4) 0 var(--sp-3); }
+.section-header h3 { margin: 0; font-size: var(--fs-500); }
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
 }
-
-code,
-pre {
-  font-family: var(--font-family-mono);
-  font-size: calc(var(--font-size-base) * 0.95);
-  background-color: var(--color-secondary);
-  border-radius: var(--radius-sm);
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
+.form-label { font-size: var(--fs-300); color: var(--muted); }
+.form-checkbox { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-400); }
 
-code {
-  padding: var(--space-1) var(--space-4);
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: #0f1116;
+  color: var(--fg);
+  outline: none;
 }
-
-pre {
-  padding: var(--space-16);
-  margin: var(--space-16) 0;
-  overflow: auto;
-  border: 1px solid var(--color-border);
+.form-control[type="color"] {
+  padding: 4px;
+  height: 40px;
 }
+.inline { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
-pre code {
-  background: none;
-  padding: 0;
-}
-
-/* Buttons */
+/* ====== Buttons ====== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-8) var(--space-16);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  line-height: 1.5;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #1b1f29;
+  color: var(--fg);
   cursor: pointer;
-  transition: all var(--duration-normal) var(--ease-standard);
-  border: none;
+  user-select: none;
   text-decoration: none;
-  position: relative;
+  transition: transform .06s ease, background .2s ease, border-color .2s ease, opacity .2s ease;
 }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn[disabled] { opacity: .6; pointer-events: none; }
 
-.btn:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-}
+.btn--primary { background: var(--accent); color: #0b0c0f; }
+.btn--outline { background: transparent; border-color: var(--card-border); }
+.btn--danger  { background: var(--danger); color: #0b0c0f; }
+.btn--ghost   { background: transparent; color: var(--fg); border-color: var(--card-border); }
+.btn--sm { padding: 6px 10px; font-size: var(--fs-300); }
 
-.btn--primary {
-  background: var(--color-primary);
-  color: var(--color-btn-primary-text);
-}
-
-.btn--primary:hover {
-  background: var(--color-primary-hover);
-}
-
-.btn--primary:active {
-  background: var(--color-primary-active);
-}
-
-.btn--secondary {
-  background: var(--color-secondary);
-  color: var(--color-text);
-}
-
-.btn--secondary:hover {
-  background: var(--color-secondary-hover);
-}
-
-.btn--secondary:active {
-  background: var(--color-secondary-active);
-}
-
-.btn--outline {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-}
-
-.btn--outline:hover {
-  background: var(--color-secondary);
-}
-
-.btn--sm {
-  padding: var(--space-4) var(--space-12);
-  font-size: var(--font-size-sm);
-  border-radius: var(--radius-sm);
-}
-
-.btn--lg {
-  padding: var(--space-10) var(--space-20);
-  font-size: var(--font-size-lg);
-  border-radius: var(--radius-md);
-}
-
-.btn--full-width {
-  width: 100%;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Form elements */
-.form-control {
-  display: block;
-  width: 100%;
-  padding: var(--space-8) var(--space-12);
-  font-size: var(--font-size-md);
-  line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-base);
-  transition: border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
-}
-
-textarea.form-control {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-}
-
-select.form-control {
-  padding: var(--space-8) var(--space-12);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: var(--select-caret-light);
-  background-repeat: no-repeat;
-  background-position: right var(--space-12) center;
-  background-size: 16px;
-  padding-right: var(--space-32);
-}
-
-/* Add a dark mode specific caret */
-@media (prefers-color-scheme: dark) {
-  select.form-control {
-    background-image: var(--select-caret-dark);
-  }
-}
-
-/* Also handle data-color-scheme */
-[data-color-scheme="dark"] select.form-control {
-  background-image: var(--select-caret-dark);
-}
-
-[data-color-scheme="light"] select.form-control {
-  background-image: var(--select-caret-light);
-}
-
-.form-control:focus {
-  border-color: var(--color-primary);
-  outline: var(--focus-outline);
-}
-
-.form-label {
-  display: block;
-  margin-bottom: var(--space-8);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-}
-
-.form-group {
-  margin-bottom: var(--space-16);
-}
-
-/* Card component */
-.card {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-card-border);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: box-shadow var(--duration-normal) var(--ease-standard);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.card__body {
-  padding: var(--space-16);
-}
-
-.card__header,
-.card__footer {
-  padding: var(--space-16);
-  border-bottom: 1px solid var(--color-card-border-inner);
-}
-
-/* Status indicators - simplified with CSS variables */
-.status {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-6) var(--space-12);
-  border-radius: var(--radius-full);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-}
-
-.status--success {
-  background-color: rgba(
-    var(--color-success-rgb, 33, 128, 141),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-success);
-  border: 1px solid
-    rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
-}
-
-.status--error {
-  background-color: rgba(
-    var(--color-error-rgb, 192, 21, 47),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-error);
-  border: 1px solid
-    rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
-}
-
-.status--warning {
-  background-color: rgba(
-    var(--color-warning-rgb, 168, 75, 47),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-warning);
-  border: 1px solid
-    rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
-}
-
-.status--info {
-  background-color: rgba(
-    var(--color-info-rgb, 98, 108, 113),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-info);
-  border: 1px solid
-    rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
-}
-
-/* Container layout */
-.container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: var(--space-16);
-  padding-left: var(--space-16);
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: var(--container-sm);
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: var(--container-md);
-  }
-}
-@media (min-width: 1024px) {
-  .container {
-    max-width: var(--container-lg);
-  }
-}
-@media (min-width: 1280px) {
-  .container {
-    max-width: var(--container-xl);
-  }
-}
-
-/* Utility classes */
-.flex {
+/* ====== Events list (text-only) ====== */
+.events-list {
   display: flex;
-}
-.flex-col {
   flex-direction: column;
+  gap: 8px;
+  margin-top: var(--sp-2);
+  margin-bottom: var(--sp-3);
 }
-.items-center {
+.event-row {
+  display: grid;
+  grid-template-columns: auto auto auto 1fr auto;
+  gap: 10px;
   align-items: center;
+  padding: 10px 12px;
+  background: #0f1116;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
 }
-.justify-center {
-  justify-content: center;
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #1b2130;
+  border: 1px solid var(--card-border);
+  font-size: var(--fs-300);
+  color: var(--muted);
 }
-.justify-between {
-  justify-content: space-between;
-}
-.gap-4 {
-  gap: var(--space-4);
-}
-.gap-8 {
-  gap: var(--space-8);
-}
-.gap-16 {
-  gap: var(--space-16);
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: var(--fs-300); color: var(--muted); }
+.grow { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.muted { color: var(--muted); }
+
+/* ====== Responsive ====== */
+@media (max-width: 680px) {
+  .form-row { grid-template-columns: 1fr; }
 }
 
-.m-0 {
+.helptext { font-size: var(--fs-300); margin-top: 6px; }
+
+.json-pre {
   margin: 0;
+  white-space: pre;
+  overflow: auto;
+  max-height: 40vh;
+  padding: 12px;
+  background: #0f1116;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  font: 500 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
-.mt-8 {
-  margin-top: var(--space-8);
-}
-.mb-8 {
-  margin-bottom: var(--space-8);
-}
-.mx-8 {
-  margin-left: var(--space-8);
-  margin-right: var(--space-8);
-}
-.my-8 {
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-8);
-}
-
-.p-0 {
-  padding: 0;
-}
-.py-8 {
-  padding-top: var(--space-8);
-  padding-bottom: var(--space-8);
-}
-.px-8 {
-  padding-left: var(--space-8);
-  padding-right: var(--space-8);
-}
-.py-16 {
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-16);
-}
-.px-16 {
-  padding-left: var(--space-16);
-  padding-right: var(--space-16);
-}
-
-.block {
-  display: block;
-}
-.hidden {
-  display: none;
-}
-
-/* Accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 2px;
-}
-
-/* Dark mode specifics */
-[data-color-scheme="dark"] .btn--outline {
-  border: 1px solid var(--color-border-secondary);
-}
-
-@font-face {
-  font-family: 'FKGroteskNeue';
-  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2')
-    format('woff2');
-}
-
-/* END PERPLEXITY DESIGN SYSTEM */
-/* Ultimátní generátor fotbalových výsledků - Enhanced CSS */
-body {
-    font-family: var(--font-family-base);
-    background-color: var(--color-background);
-    margin: 0;
-    padding: var(--space-16);
-}
-
-.header {
-    text-align: center;
-    margin-bottom: var(--space-32);
-    padding: var(--space-24) 0;
-}
-
-.header h1 {
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    margin-bottom: var(--space-8);
-}
-
-.header p {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-secondary);
-    margin: 0;
-}
-
-.main-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-32);
-    max-width: var(--container-xl);
-    margin: 0 auto;
-}
-
-/* Form styles */
-.form-section {
-    min-height: fit-content;
-}
-
-.section-header {
-    margin-top: var(--space-24);
-    margin-bottom: var(--space-16);
-    padding-bottom: var(--space-8);
-    border-bottom: 2px solid var(--color-primary);
-}
-
-.section-header h3 {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text);
-    margin: 0;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
-}
-
-.color-input {
-    width: 100%;
-    height: 40px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-base);
-    padding: var(--space-4);
-    cursor: pointer;
-    background-color: var(--color-surface);
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: var(--space-8);
-}
-
-.checkbox {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--color-primary);
-}
-
-.checkbox-label {
-    font-size: var(--font-size-md);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text);
-    cursor: pointer;
-    margin: 0;
-}
-
-.settings-section {
-    background-color: var(--color-bg-1);
-    padding: var(--space-16);
-    border-radius: var(--radius-base);
-    border: 1px solid var(--color-card-border);
-}
-
-.button-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
-    margin-top: var(--space-24);
-}
-
-/* Team configuration */
-.team-config {
-    background-color: var(--color-bg-2);
-    padding: var(--space-16);
-    border-radius: var(--radius-base);
-    margin-bottom: var(--space-16);
-    border: 1px solid var(--color-card-border);
-}
-
-.team-config h4 {
-    margin: 0 0 var(--space-12) 0;
-    font-size: var(--font-size-lg);
-    color: var(--color-text);
-}
-
-.team-custom, .team-database {
-    transition: all var(--duration-normal) var(--ease-standard);
-}
-
-/* Event manager */
-.event-manager {
-    background-color: var(--color-bg-3);
-    padding: var(--space-20);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-card-border);
-}
-
-.event-controls {
-    margin-bottom: var(--space-20);
-}
-
-.time-selector {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--space-8);
-}
-
-.events-list h4 {
-    margin: 0 0 var(--space-12) 0;
-    font-size: var(--font-size-lg);
-    color: var(--color-text);
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: var(--space-8);
-}
-
-.events-container {
-    min-height: 120px;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.event-item-manager {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-8) var(--space-12);
-    background-color: var(--color-surface);
-    border-radius: var(--radius-base);
-    margin-bottom: var(--space-8);
-    border: 1px solid var(--color-card-border);
-    transition: all var(--duration-fast) var(--ease-standard);
-}
-
-.event-item-manager:hover {
-    box-shadow: var(--shadow-sm);
-}
-
-.event-info {
-    display: flex;
-    align-items: center;
-    gap: var(--space-8);
-    flex: 1;
-}
-
-.event-icon-display {
-    font-size: var(--font-size-lg);
-    width: 20px;
-    text-align: center;
-}
-
-.event-details {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-}
-
-.event-player {
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text);
-    font-size: var(--font-size-sm);
-}
-
-.event-time {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-xs);
-}
-
-.event-team-badge {
-    padding: var(--space-2) var(--space-6);
-    border-radius: var(--radius-sm);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
-    color: white;
-}
-
-.event-team-badge.home {
-    background-color: var(--color-success);
-}
-
-.event-team-badge.away {
-    background-color: var(--color-info);
-}
-
-.event-remove {
-    background: none;
-    border: none;
-    color: var(--color-error);
-    font-size: var(--font-size-lg);
-    cursor: pointer;
-    padding: var(--space-4);
-    border-radius: var(--radius-sm);
-    transition: all var(--duration-fast) var(--ease-standard);
-}
-
-.event-remove:hover {
-    background-color: rgba(var(--color-error-rgb), 0.1);
-}
-
-.no-events {
-    text-align: center;
-    color: var(--color-text-secondary);
-    font-style: italic;
-    margin: var(--space-24) 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Preview styles – CENTROVANÝ LAYOUT (mobile fix: shrinkable rows, robust logo/img selektory) */
-.preview-container{
-  display:flex;justify-content:center;align-items:center;min-height:600px;
-}
-.match-graphic{
-  position:relative;border-radius:var(--radius-lg);overflow:hidden;
-  box-shadow:var(--shadow-lg);border:1px solid var(--color-card-border);
-  transition:all var(--duration-normal) var(--ease-standard);
-}
-
-/* náhledové rozměry dle poměru */
-.match-graphic.aspect-9-16{width:320px;height:568px;}
-.match-graphic.aspect-4-5{width:400px;height:500px;}
-
-.background-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
-
-.overlay-content{
-  position:absolute;inset:0;z-index:2;
-  display:grid;
-  grid-template-columns:1fr 1fr;         /* levá/pravá půlka */
-  grid-template-rows:repeat(6, minmax(0, 1fr)); /* každá šestina je shrinkable */
-  gap:clamp(4px,1.2vh,16px);
-  box-sizing:border-box;
-  padding:clamp(10px,3.5vw,24px);        /* padding od okrajů */
-  color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,.8);
-  align-items:stretch;                   /* řádky se mohou roztahovat i zmenšovat */
-}
-
-/* 1–2) LOGA + NÁZVY (2 šestiny) – shrinkable řádky */
-.team-names-centered {
-  grid-column:1 / -1;
-  grid-row:1 / 3;
-  display:grid;
-  grid-template-columns:1fr 1fr;                /* home / away */
-  grid-template-rows:minmax(0,1fr) minmax(0,1fr); /* 1: loga, 2: názvy -> oba shrinkable */
-  gap:clamp(4px,1vh,16px);
-  row-gap: var(--logo-name-gap);
-  align-items:stretch;
-  justify-items:center;
-}
-
-@supports not (display: contents) {
-  .team-names-centered > .team-block {
-    gap: var(--logo-name-gap);
-  }
-}
-
-
-/* --- FIX: iPhone/Safari – loga posunutá vlevo ------------------------------
-   .team-block obaluje logo + název, takže děti nebyly grid-items.
-   Uděláme z .team-block „průchozí“ element (display: contents),
-   a přidáme fallback, který centruje obsah uvnitř wrapperu.
----------------------------------------------------------------------------*/
-.team-names-centered > .team-block { display: contents; }
-
-@supports not (display: contents) {
-  .team-names-centered { grid-template-rows: auto auto; }
-  .team-names-centered > .team-block{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(22px, 1.6vh, 18px);
-  }
-  .team-names-centered > .team-block .team-logo { margin: 0 auto; display: block; }
-}
-
-/* Extra safety pro Safari (zarovnání obrázků) */
-.team-logo { display: block; margin-inline: auto; }
-.team-logo img { display: block; margin: 20 auto; }
-
-
-/* Umístění v mřížce */
-.home-logo{grid-column:1;grid-row:1;justify-self:center;align-self:center;}
-.home-name{grid-column:1;grid-row:2;justify-self:center;align-self:start;}
-.away-logo{grid-column:2;grid-row:1;justify-self:center;align-self:center;}
-.away-name{grid-column:2;grid-row:2;justify-self:center;align-self:start;}
-
-/* LOGO – pokryj obě varianty (element i jeho <img> potomek) */
-.home-logo,.away-logo,
-.home-logo img,.away-logo img{
-  max-width:92%;
-  max-height:min(100%,12vh);             /* vždy se vejde do 1. řádku */
-  width:auto;height:auto;object-fit:contain;
-  display:block;
-  filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));
-}
-
-/* --- NÁZEV TÝMU: mobilní škálování jistě funguje --- */
-.match-graphic .overlay-content .team-names-centered .home-name,
-.match-graphic .overlay-content .team-names-centered .away-name,
-.match-graphic .overlay-content .team-names-centered .team-name {
-  text-align: center;
-  font-weight: var(--font-weight-bold);
-  line-height: 1.12;
-
-  /* Škáluje podle šířky i výšky viewportu; na mobilech výrazně zmenší. */
-  font-size: clamp(9px, min(2.6vw, 1.7vh), 24px) !important;
-
-  /* Bez lámání uprostřed slova, ale smí balancovat řádky */
-  white-space: normal;
-  overflow-wrap: break-word;
-  word-break: keep-all;
-  text-wrap: balance;
-
-  max-width: 100%;
-  max-height: 100%;
-  /* overflow: hidden; */
-}
-
-
-/* 3) SKÓRE (prostřední šestina) */
-.score-display-centered{
-  grid-column:1 / -1;grid-row:3;
-  display:flex;align-items:center;justify-content:center;
-  gap:clamp(6px,1.4vh,20px);
-}
-.score{
-  font-weight:var(--font-weight-bold);line-height:1;
-  font-size:clamp(24px, min(6.8vh, 15vw), 90px);
-}
-.score-separator{
-  font-weight:var(--font-weight-bold);line-height:1;
-  font-size:clamp(16px, min(3.8vh, 9vw), 60px);
-}
-
-/* 4–5) UDÁLOSTI (dvě šestiny) – také shrinkable */
-.events-section-centered{
-  grid-column:1 / -1;grid-row:4 / 6;
-  display:grid;grid-template-columns:1fr 1fr;align-items:start;
-  gap:clamp(6px,1.2vh,18px);
-  /* max-height:calc((100%/6)*2 - clamp(4px,1vh,16px)); */
-  overflow:hidden;
-}
-.events-column{
-  display:flex;flex-direction:column;gap:clamp(3px,.7vh,10px);
-  font-size:clamp(10px, min(1.2vh, 3.8vw), 16px);
-  line-height:1.25;
-  white-space:normal;word-break:keep-all;overflow-wrap:break-word;
-}
-.events-column.home-events{align-items:flex-end;text-align:right;}
-.events-column.away-events{align-items:flex-start;text-align:left;}
-.event-item{
-  display:inline-flex;align-items:center;gap:clamp(4px,.8vh,10px);
-  padding:clamp(2px,.5vh,6px) clamp(4px,.5vh,10px);
-  border-radius:var(--radius-sm);
-  background-color:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.2);
-  backdrop-filter:blur(8px);
-}
-
-/* 6) STATUS (poslední šestina) */
-.status-text{
-  grid-column:1 / -1;grid-row:6;
-  align-self:end;justify-self:center;
-  font-weight:var(--font-weight-medium);
-  text-transform:uppercase;letter-spacing:1px;text-align:center;
-  font-size:clamp(12px, min(2vh, 4.3vw), 20px);
-  margin:0;
-}
-
-/* Responsivní náhledové rozměry */
-@media (max-width:1024px){
-  .match-graphic.aspect-9-16{width:280px;height:497px;}
-  .match-graphic.aspect-4-5{width:320px;height:400px;}
-
-  .match-graphic .overlay-content .team-names-centered .home-name,
-.match-graphic .overlay-content .team-names-centered .away-name,
-.match-graphic .overlay-content .team-names-centered .team-name {
-  text-align: center;
-  font-weight: var(--font-weight-bold);
-  line-height: 1.12;
-
-  /* Škáluje podle šířky i výšky viewportu; na mobilech výrazně zmenší. */
-  font-size: clamp(9px, min(2.6vw, 1.1vh), 24px) !important;
-
-  /* Bez lámání uprostřed slova, ale smí balancovat řádky */
-  white-space: normal;
-  overflow-wrap: break-word;
-  word-break: keep-all;
-  text-wrap: balance;
-
-  max-width: 100%;
-  max-height: 100%;
-  /* overflow: hidden; */
-}
-
-}
-@media (max-width:768px){
-  .match-graphic.aspect-9-16{width:240px;height:426px;}
-  .match-graphic.aspect-4-5{width:280px;height:350px;}
-  .overlay-content{gap:clamp(3px,1vh,12px);padding:clamp(8px,3.5vw,18px);}
-}
-/* === MOBILE OVERRIDES (extra tight) =================================== */
-
-/* Společné: žádné dělení uprostřed slov, vypnout hyphenaci */
-@media (max-width: 480px) {
-  .match-graphic .overlay-content .team-names-centered .home-name,
-  .match-graphic .overlay-content .team-names-centered .away-name,
-  .match-graphic .overlay-content .team-names-centered .team-name {
-    /* tvrdé zákazy dělení slov */
-    word-break: keep-all !important;   /* neštěpí uvnitř slova */
-    overflow-wrap: normal !important;  /* neláme slovo jen proto, aby se vešlo */
-    hyphens: none !important;
-
-    /* agresivnější zmenšování textu (bere v potaz šířku i výšku) */
-    font-size: clamp(7px, min(3.8vw, 1.1vh), 18px) !important;
-
-    /* 2 řádky max – když ani to nestačí, zbytek se usekne (lepší než rozpad do dalších sekcí) */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-
-    /* jemnější vyvažování řádků */
-    text-wrap: balance;
-  }
-
-  /* Skóre – menší na mobilech */
-  .score {
-    font-size: clamp(20px, min(5.6vh, 12vw), 64px) !important;
-    line-height: 1 !important;
-  }
-  .score-separator {
-    font-size: clamp(14px, min(3.3vh, 7.5vw), 40px) !important;
-    line-height: 1 !important;
-  }
-
-  /* Události – „hodně malé“, zmenšit i mezery */
-  .events-section-centered {
-    gap: clamp(4px, 0.8vh, 12px) !important;
-  }
-  .events-column {
-    font-size: clamp(8px, min(1.15vh, 2.8vw), 13px) !important;
-    gap: clamp(2px, 0.4vh, 6px) !important;
-    line-height: 1.2 !important;
-  }
-  .event-item {
-    gap: clamp(3px, 0.6vh, 8px) !important;
-    max-height: min(100%, 10.5vh) !important; /* o něco menší než dřív */
-    max-width: 90% !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
-    padding: clamp(1px, 0.35vh, 4px) clamp(3px, 0.6vh, 8px) !important;
-  }
-
-  /* Loga – ať jsou vždy vidět a neuseknutá */
-  .team-names-centered .home-logo,
-  .team-names-centered .away-logo,
-  .team-names-centered .home-logo img,
-  .team-names-centered .away-logo img {
-    max-height: min(100%, 10.5vh) !important; /* o něco menší než dřív */
-    max-width: 90% !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
-  }
-}
-
-/* Drobné přitvrzení pro užší mobily */
-@media (max-width: 420px) {
-  .match-graphic .overlay-content .team-names-centered .home-name,
-  .match-graphic .overlay-content .team-names-centered .away-name,
-  .match-graphic .overlay-content .team-names-centered .team-name {
-    font-size: clamp(9px, min(2.0vw, 1.9vh), 20px) !important;
-  }
-}
-
-/* Ještě tvrdší režim pro velmi úzké telefony */
-@media (max-width: 360px) {
-  .match-graphic .overlay-content .team-names-centered .home-name,
-  .match-graphic .overlay-content .team-names-centered .away-name,
-  .match-graphic .overlay-content .team-names-centered .team-name {
-    font-size: clamp(6px, min(3.4vw, 1.3vh), 16px) !important;
-  }
-  .score { font-size: clamp(18px, min(5vh, 11vw), 56px) !important; }
-  .score-separator { font-size: clamp(12px, min(3vh, 6.5vw), 36px) !important; }
-
-  .events-column { font-size: clamp(7px, min(1.1vh, 2.5vw), 12px) !important; }
-}
-
-
-/* Názvy týmů – zalamuj jen mezi slovy, nikdy uprostřed */
-.match-graphic .team-name,
-.match-graphic .overlay-content .team-names-centered .team-name,
-.home-name, .away-name {
-  white-space: normal;       /* může jít na více řádků */
-  word-break: keep-all;      /* neštípat slova */
-  overflow-wrap: normal;     /* nelámat libovolně */
-  hyphens: none;             /* bez automatických spojovníků */
-}
-
-/* === Events (shrunk, word-safe, only half-width) === */
-.match-graphic .event {
-  white-space: normal !important;
-  word-break: keep-all !important;
-  overflow-wrap: normal !important;
-  hyphens: none !important;
-  min-width: 0;
-  font-size: 10px;        /* základ – pak se JS může zmenšit ještě víc */
-  line-height: 1.2;
-  display: block;
-}
-
-/* každý tým má svoje eventy jen v polovině */
-.match-graphic .home-events,
-.match-graphic .away-events {
-  flex: 1 1 50%;
-  max-width: 100%;
-  min-width: 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Notification styles */
-.notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: var(--space-16) var(--space-24);
-    border-radius: var(--radius-base);
-    font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-sm);
-    z-index: 1000;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: all var(--duration-normal) var(--ease-standard);
-    max-width: 300px;
-    box-shadow: var(--shadow-md);
-}
-
-.notification.show {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.notification--success {
-    background-color: rgba(var(--color-success-rgb), var(--status-bg-opacity));
-    color: var(--color-success);
-    border: 1px solid rgba(var(--color-success-rgb), var(--status-border-opacity));
-}
-
-.notification--error {
-    background-color: rgba(var(--color-error-rgb), var(--status-bg-opacity));
-    color: var(--color-error);
-    border: 1px solid rgba(var(--color-error-rgb), var(--status-border-opacity));
-}
-
-.notification--info {
-    background-color: rgba(var(--color-info-rgb), var(--status-bg-opacity));
-    color: var(--color-info);
-    border: 1px solid rgba(var(--color-info-rgb), var(--status-border-opacity));
-}
-
-/* Loading states */
-.btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-/* Responsive design */
-@media (max-width: 1024px) {
-    .main-content {
-        grid-template-columns: 1fr;
-        gap: var(--space-24);
-    }
-    
-    .match-graphic.aspect-9-16 {
-        width: 280px;
-        height: 497px;
-    }
-    
-    .match-graphic.aspect-4-5 {
-        width: 320px;
-        height: 400px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: var(--space-12);
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .button-group {
-        grid-template-columns: 1fr;
-    }
-    
-    .time-selector {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .match-graphic.aspect-9-16 {
-        width: 240px;
-        height: 426px;
-    }
-    
-    .match-graphic.aspect-4-5 {
-        width: 280px;
-        height: 350px;
-    }
-    
-    .header h1 {
-        font-size: var(--font-size-3xl);
-    }
-
-    .events-section-centered {
-        flex-direction: column;
-        align-items: center;
-        gap: var(--space-12);
-    }
-    
-    .events-column {
-        max-width: 180px;
-    }
-    
-    .events-column.home-events,
-    .events-column.away-events {
-        align-items: center;
-    }
-    
-    .home-events .event-item,
-    .away-events .event-item {
-        text-align: center;
-        flex-direction: row;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: var(--space-8);
-    }
-    
-    .match-graphic.aspect-9-16 {
-        width: 200px;
-        height: 355px;
-    }
-    
-    .match-graphic.aspect-4-5 {
-        width: 240px;
-        height: 300px;
-    }
-
-    .overlay-content {
-        padding: var(--space-16);
-    }
-    
-    .events-column {
-        max-width: 120px;
-    }
-}
-
-/* Accessibility improvements */
-@media (prefers-reduced-motion: reduce) {
-    .match-graphic,
-    .event-item,
-    .team-name,
-    .score,
-    .notification,
-    .overlay-content {
-        transition: none;
-    }
-}
-
-/* Focus improvements */
-.form-control:focus,
-.color-input:focus {
-    border-color: var(--color-primary);
-    box-shadow: var(--focus-ring);
-    outline: none;
-}
-
-/* Hidden utility */
-.hidden {
-    display: none !important;
-}
-
-
-/* === EVENTS: single-line, shrink-to-fit in half === */
-.events-section-centered {
-  /* display: flex; */
-  align-items: flex-start;
-  gap: var(--gap-lg, 24px);
-}
-
-.home-events,
-.away-events {
-  flex: 1 1 50%;
-  min-width: 0;              /* důležité: aby fungovalo měření scrollWidth */
-  padding: 0 16px;           /* bezpečné okraje uvnitř poloviny */
-}
-
-.home-events { text-align: right; }
-.away-events { text-align: left; }
-
-.event-line {
-  display: block;
-  width: 100%;
-  white-space: nowrap;       /* vše na 1 řádek */
-  word-break: keep-all;      /* nikdy neděl slova uprostřed */
-  overflow: hidden;          /* vizuálně nepřetékej, JS předtím zmenší font */
-  line-height: 1.2;
-  /* výchozí velikost – JS ji může zmenšit, ale nikdy ne zvětšit */
-  font-size: var(--font-events, 18px);
-}
-
-/* jemnější spacing mezi řádky eventů */
-.event-line + .event-line { margin-top: 0.4em; }
