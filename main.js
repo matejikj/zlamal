@@ -2,19 +2,13 @@
   "use strict";
 
   const teamsData = window.teamsData;
-
   const ALL_LEAGUES_VALUE = "__ALL__";
-
-  // ---- utils & elementy ---------------------------------------------
   const qs = (s, r = document) => r.querySelector(s);
-
   const els = {
-    // meta / podklad
     backgroundImage: () => qs("#backgroundImage"),
     backgroundInfo: () => qs("#backgroundInfo"),
     removeBackground: () => qs("#removeBackground"),
 
-    // form
     aspectRatio: () => qs("#aspectRatio"),
     league: () => qs("#league"),
     useHomeCustom: () => qs("#useHomeCustom"),
@@ -38,18 +32,14 @@
     statusText: () => qs("#statusText"),
     resetBtn: () => qs("#resetBtn"),
 
-    // json náhled / stažení
     jsonPreview: () => qs("#jsonPreview"),
     downloadJsonBtn: () => qs("#downloadJsonBtn"),
-
-    // import json
     importJsonFile: () => qs("#importJsonFile"),
     importJsonText: () => qs("#importJsonText"),
     importJsonFromTextBtn: () => qs("#importJsonFromTextBtn"),
     importJsonError: () => qs("#importJsonError"),
   };
 
-  // ---- malý store ---------------------------------------------------
   const createStore = (initial) => {
     let state = structuredClone(initial);
     const subs = new Set();
@@ -62,35 +52,25 @@
   };
 
   const initialState = {
-    // meta
     backgroundDataUrl: "",
     backgroundName: "",
     aspectRatio: "9:16",
-
-    // výchozí liga = ALL (pro přáteláky)
     league: ALL_LEAGUES_VALUE,
 
-    // týmy
     useHomeCustom: false,
     useAwayCustom: false,
     homeTeamName: "",
     awayTeamName: "",
     homeColor: "#ffffff",
     awayColor: "#ffffff",
-
-    // skóre a stav
     homeScore: 0,
     awayScore: 0,
     statusText: "",
-
-    // ostatní
-    events: [],           // {id, type, team("home"|"away"), player, minute, extra}
+    events: [],
     useShortNames: false,
   };
-
   const store = createStore(initialState);
 
-  // ---- helpers: týmy & vyhledávání ---------------------------------
   function getAllTeamsFlat() {
     const out = [];
     for (const [lg, arr] of Object.entries(teamsData)) {
@@ -117,8 +97,7 @@
     return useShort && team.short ? team.short : team.name;
   }
 
-  // ---- barvy dle výběru týmu ---------------------------------------
-  function updateSideColor(side /* "home" | "away" */) {
+  function updateSideColor(side) {
     const s = store.getState();
     const selectEl = side === "home" ? els.homeTeamSelect() : els.awayTeamSelect();
     const colorEl = side === "home" ? els.homeColor() : els.awayColor();
@@ -138,7 +117,6 @@
     updateSideColor("away");
   }
 
-  // ---- selecty: liga & týmy ----------------------------------------
   const fillLeagueSelect = () => {
     const sel = els.league();
     sel.innerHTML = "";
@@ -203,7 +181,6 @@
     applyDefaultColors();
   };
 
-  // ---- viditelnost custom polí (globální, ať to jde volat i z importu)
   function setCustomVisibilityFromState() {
     const s = store.getState();
     els.homeTeamName().style.display = s.useHomeCustom ? "" : "none";
@@ -212,7 +189,6 @@
     els.awayTeamSelect().style.display = s.useAwayCustom ? "none" : "";
   }
 
-  // ---- render: seznam událostí -------------------------------------
   const renderEventsList = () => {
     const root = els.eventsContainer();
     root.innerHTML = "";
@@ -246,7 +222,6 @@
     });
   };
 
-  // ---- JSON: build + preview + download -----------------------------
   function buildJson() {
     const s = store.getState();
 
@@ -351,10 +326,7 @@
     URL.revokeObjectURL(url);
   }
 
-  // ---- Import JSON --------------------------------------------------
   function normalizeLeagueValue(metaLeague, teams) {
-    // pokud JSON tvrdí konkrétní ligu a oba týmy z ní pochází, použij ji,
-    // pokud jsou z různých lig => ALL
     if (!metaLeague || metaLeague === "ALL") return ALL_LEAGUES_VALUE;
     try {
       const uniq = new Set();
@@ -371,17 +343,14 @@
   }
 
   function applyImportedJson(data) {
-    // 1) meta
     const aspectRatio = (data?.meta?.aspectRatio === "4:5") ? "4:5" : "9:16";
     let leagueValue = normalizeLeagueValue(data?.meta?.league, data?.teams);
 
-    // 2) připrav UI pro novou ligu
     store.setState({ aspectRatio, league: leagueValue });
     els.aspectRatio().value = aspectRatio;
     els.league().value = leagueValue;
-    fillTeamSelects(); // naplní ALL/ligové options + nastaví barvy defaultně
+    fillTeamSelects();
 
-    // 3) Pozadí
     if (data?.meta?.background?.dataUrl) {
       store.setState({
         backgroundDataUrl: String(data.meta.background.dataUrl),
@@ -396,7 +365,6 @@
       els.removeBackground().disabled = true;
     }
 
-    // 4) Týmy (home/away)
     const sides = ["home", "away"];
     sides.forEach(side => {
       const t = data?.teams?.[side] || {};
@@ -405,9 +373,7 @@
       const selected = String(t.selectedName || t.db?.name || "");
       const color = String(t.color || t.db?.color || (side === "home" ? "#ffffff" : "#ffffff"));
 
-      // pokud týmy z JSONu pochází z různých lig => přepneme na ALL, ať jdou vybrat
       if (t?.db?.league && leagueValue !== ALL_LEAGUES_VALUE) {
-        // když není z meta ligy, přepneme na ALL
         if (t.db.league !== leagueValue) {
           leagueValue = ALL_LEAGUES_VALUE;
           store.setState({ league: leagueValue });
@@ -416,24 +382,17 @@
         }
       }
 
-      // vlastní vs databázový název
       store.setState({
         [side === "home" ? "useHomeCustom" : "useAwayCustom"]: useCustom,
         [side === "home" ? "homeTeamName" : "awayTeamName"]: customName,
         [side === "home" ? "homeColor" : "awayColor"]: color,
       });
-
-      // UI toggle custom
       setCustomVisibilityFromState();
-
-      // nastav select / input
       if (useCustom) {
         (side === "home" ? els.homeTeamName() : els.awayTeamName()).value = customName;
       } else {
-        // vyber z listu (v ALL tam položka bude vždy, pokud ji známe)
         const selEl = side === "home" ? els.homeTeamSelect() : els.awayTeamSelect();
         if (selected) {
-          // pokud v aktuálním poolu neexistuje, přepneme ALL a naplníme znovu
           const pool = getTeamsForLeague(store.getState().league);
           if (!pool.some(ti => ti.name === selected)) {
             store.setState({ league: ALL_LEAGUES_VALUE });
@@ -443,13 +402,9 @@
           selEl.value = selected;
         }
       }
-
-      // barva z JSONu (přepíše automatickou)
       const colorEl = side === "home" ? els.homeColor() : els.awayColor();
       colorEl.value = color;
     });
-
-    // 5) Skóre + status + možnost zkrácených názvů
     const homeScore = safeNum(data?.score?.home, 0);
     const awayScore = safeNum(data?.score?.away, 0);
     const statusText = String(data?.statusText || "");
@@ -461,7 +416,6 @@
     els.statusText().value = statusText;
     els.useShortNames().checked = useShortNames;
 
-    // 6) Události
     const importedEvents = Array.isArray(data?.events) ? data.events : [];
     const norm = importedEvents.map((e) => ({
       id: e.id || (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2)),
@@ -474,16 +428,12 @@
     store.setState({ events: norm });
     renderEventsList();
 
-    // 7) Automatická barva podle vybraných týmů, pokud JSON neobsahoval barvu
-    // (import už barvu nastavil; tohle jen doplní chybějící)
     if (!data?.teams?.home?.color && !data?.teams?.home?.useCustom) updateSideColor("home");
     if (!data?.teams?.away?.color && !data?.teams?.away?.useCustom) updateSideColor("away");
 
-    // 8) Hotovo – vygeneruj náhled JSONu
     renderJsonPreview();
   }
 
-  // ---- podklad: nahrání/odebrání -----------------------------------
   const wireBackground = () => {
     const info = els.backgroundInfo();
     const btnRemove = els.removeBackground();
@@ -526,16 +476,13 @@
     updateInfo();
   };
 
-  // ---- napojení formuláře ------------------------------------------
   const wireForm = () => {
-    // liga
     els.league().addEventListener("change", (e) => {
       store.setState({ league: e.target.value || ALL_LEAGUES_VALUE });
-      fillTeamSelects();     // znovu naplní options + barvy
+      fillTeamSelects();
       renderJsonPreview();
     });
 
-    // přepínání custom názvů
     els.useHomeCustom().addEventListener("change", (e) => {
       store.setState({ useHomeCustom: e.target.checked });
       setCustomVisibilityFromState();
@@ -547,7 +494,6 @@
       renderJsonPreview();
     });
 
-    // výběr konkrétních týmů => barva z DB + JSON
     els.homeTeamSelect().addEventListener("change", () => {
       updateSideColor("home");
       renderJsonPreview();
@@ -557,11 +503,9 @@
       renderJsonPreview();
     });
 
-    // ruční názvy týmů
     els.homeTeamName().addEventListener("input", renderJsonPreview);
     els.awayTeamName().addEventListener("input", renderJsonPreview);
 
-    // skóre
     els.homeScore().addEventListener("input", (e) => {
       store.setState({ homeScore: Number(e.target.value) || 0 });
       renderJsonPreview();
@@ -571,7 +515,6 @@
       renderJsonPreview();
     });
 
-    // barvy (ruční přepsání)
     els.homeColor().addEventListener("input", (e) => {
       store.setState({ homeColor: e.target.value });
       renderJsonPreview();
@@ -581,7 +524,6 @@
       renderJsonPreview();
     });
 
-    // status + zkrácené názvy
     els.statusText().addEventListener("input", (e) => {
       store.setState({ statusText: e.target.value });
       renderJsonPreview();
@@ -591,7 +533,6 @@
       renderJsonPreview();
     });
 
-    // události
     els.addEventBtn().addEventListener("click", () => {
       const type = els.eventType().value;
       const team = els.eventTeam().value;
@@ -606,11 +547,8 @@
       renderJsonPreview();
     });
 
-    // reset
     els.resetBtn().addEventListener("click", () => {
       store.replace(initialState);
-
-      // UI resety
       els.aspectRatio().value = initialState.aspectRatio;
 
       fillLeagueSelect();
@@ -628,7 +566,6 @@
       els.useShortNames().checked = false;
       els.statusText().value = "";
 
-      // podklad
       els.backgroundImage().value = "";
       els.backgroundInfo().textContent = "Žádný soubor nenahrán.";
       els.removeBackground().disabled = true;
@@ -637,16 +574,11 @@
       setCustomVisibilityFromState();
       renderJsonPreview();
     });
-
-    // JSON download
     els.downloadJsonBtn().addEventListener("click", downloadJson);
   };
-
-  // ---- napojení importu --------------------------------------------
   function wireImportJson() {
     const showError = (msg) => { els.importJsonError().textContent = msg || ""; };
 
-    // Soubor .json
     els.importJsonFile().addEventListener("change", (e) => {
       showError("");
       const file = e.target.files && e.target.files[0];
@@ -665,8 +597,6 @@
       reader.onerror = () => showError("Soubor se nepodařilo načíst.");
       reader.readAsText(file);
     });
-
-    // Textarea
     els.importJsonFromTextBtn().addEventListener("click", () => {
       showError("");
       const txt = els.importJsonText().value;
@@ -681,7 +611,6 @@
     });
   }
 
-  // Vytvoří (pokud není) a vrátí element pro chybovou hlášku pod náhledem
   function ensurePreviewErrorEl() {
     const wrap = document.getElementById("previewWrap");
     if (!wrap) return null;
@@ -689,9 +618,8 @@
     if (!errEl) {
       errEl = document.createElement("div");
       errEl.id = "previewError";
-      // základní inline styl (není třeba sahat do CSS)
       errEl.style.marginTop = "8px";
-      errEl.style.color = "#ef4444";    // červená
+      errEl.style.color = "#ef4444";
       errEl.style.fontSize = "0.9rem";
       errEl.style.fontWeight = "600";
       errEl.style.display = "none";
@@ -700,7 +628,6 @@
     return errEl;
   }
 
-  // Zobrazí/skrývá chybovou zprávu podle výsledku validace
   function updatePreviewError(errors) {
     const el = ensurePreviewErrorEl();
     if (!el) return;
@@ -713,8 +640,6 @@
     }
   }
 
-
-  // Live aktualizace <img id="exportPreview"> při každé změně stavu/JSONu
   function setupLivePreview() {
     const wrap = document.getElementById("previewWrap");
     const img = document.getElementById("exportPreview");
@@ -723,14 +648,10 @@
 
     const refresh = debounce(async () => {
       try {
-        // 1) Postav aktuální JSON a zvaliduj
         const data = buildJson();
         const errs = validateJson(data);
         updatePreviewError(errs);
 
-        // 2) Pokud je JSON neplatný, náhled klidně ponecháme,
-        //    jen zobrazíme červenou hlášku. (Případně by šlo i
-        //    náhled skrýt, když errs.length > 0.)
         await showPreview();
       } catch (e) {
         console.error("Chyba při generování náhledu:", e);
@@ -742,13 +663,9 @@
       refresh();
     });
 
-    // první vykreslení po startu
     refresh();
   }
 
-
-
-  // --- Debounce util pro náhled: ať to nespouští render při každém keypressu
   function debounce(fn, wait = 300) {
     let t = null;
     return (...args) => {
@@ -757,26 +674,21 @@
     };
   }
 
-  // --- Jednoduchá validační pravidla pro náš JSON
   function validateJson(payload) {
     const errs = [];
-    // meta.aspectRatio
     const ar = payload?.meta?.aspectRatio;
     if (ar !== "9:16" && ar !== "4:5") {
       errs.push("Neplatný poměr stran (meta.aspectRatio musí být 9:16 nebo 4:5).");
     }
-    // názvy týmů (displayName)
     const hName = payload?.teams?.home?.displayName?.trim();
     const aName = payload?.teams?.away?.displayName?.trim();
     if (!hName) errs.push("Chybí název domácího týmu.");
     if (!aName) errs.push("Chybí název hostujícího týmu.");
-    // skóre
     const hs = payload?.score?.home, as = payload?.score?.away;
     const isInt = (v) => Number.isInteger(v) && v >= 0;
     if (!isInt(hs) || !isInt(as)) {
       errs.push("Skóre musí být nezáporná celá čísla.");
     }
-    // events
     const ev = Array.isArray(payload?.events) ? payload.events : [];
     ev.forEach((e, i) => {
       if (!e || (e.team !== "home" && e.team !== "away")) {
@@ -793,25 +705,12 @@
     return errs;
   }
 
-
-  // ---- init ---------------------------------------------------------
   document.addEventListener("DOMContentLoaded", () => {
-    fillLeagueSelect();         // naplní ligy (včetně ALL)
-    fillTeamSelects();          // naplní oba selecty týmů + barvy
-    wireBackground();           // nahrání/odebrání podkladu (jen metadata)
-    wireForm();                 // handlery formuláře
-    wireImportJson();           // import JSONu (soubor i text)
-    setCustomVisibilityFromState();
-    renderEventsList();         // prázdný seznam / existující state
-    renderJsonPreview();        // první JSON
-
-    setupLivePreview();
+    fillLeagueSelect(); fillTeamSelects(); wireBackground(); wireForm(); wireImportJson(); setCustomVisibilityFromState();
+    renderEventsList(); renderJsonPreview(); setupLivePreview();
 
   });
 
-  /* ====================== PNG EXPORT – vše pod DOMContentLoaded ====================== */
-
-  /** 1) Konfigurace – nezávislé pro 9:16 i 4:5 */
   const PNG_916_CFG = Object.freeze({
     W: 1080, H: 1920,
     padding: 72,
@@ -834,32 +733,13 @@
     overlay: { enabled: true, opacity: 0.35 }
   });
 
-  /** 2) Pevný canvas font (TTF vedle main.js) */
   const CANVAS_FONT_FAMILY = "JakubUI";
   const CANVAS_FONT_URL = "./Roboto-MediumItalic.ttf";
   let __fontReady = false;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /** 3) Vykreslení PNG podle pravidel – vrací HTMLCanvasElement */
   async function renderMatchPNG(cfg) {
-    // --- helpers -----------------------------------------------------
     const j = buildJson();
 
-    // Font – načteme TTF pouze jednou
     async function ensureCanvasFont() {
       if (window.__canvasFontReady) return;
       if (typeof FontFace !== "undefined") {
@@ -900,7 +780,6 @@
       ctx.save();
       ctx.textAlign = align;
       ctx.textBaseline = "alphabetic";
-      // jemný stín kvůli čitelnosti
       ctx.shadowColor = "rgba(0,0,0,0.35)";
       ctx.shadowBlur = 6;
       ctx.shadowOffsetX = 0;
@@ -919,7 +798,6 @@
           line = test;
         } else {
           if (line) lines.push(line);
-          // slova nedělíme uvnitř – když je samo o sobě delší než maxWidth, prostě ho dáme na samostatný řádek
           line = w;
         }
       }
@@ -949,15 +827,12 @@
 
     await ensureCanvasFont();
 
-    // --- canvas & podklad --------------------------------------------
     const W = cfg.W, H = cfg.H;
     const pad = cfg.padding ?? 64;
 
     const canvas = createCanvas(W, H);
     const ctx = canvas.getContext("2d");
 
-    // Pozadí (cover)
-    // --- helpers pro gradient pozadí -----------------------------------
     function hexToRGBA(hex, alpha = 1) {
       const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex || "");
       if (!m) return `rgba(0,0,0,${alpha})`;
@@ -968,11 +843,9 @@
     }
 
     function drawDualLightGradient(ctx, W, H, leftColor, rightColor) {
-      // základ
       ctx.fillStyle = "#0a0a0a";
       ctx.fillRect(0, 0, W, H);
 
-      // levé "světlo"
       let gL = ctx.createRadialGradient(W * 0.18, H * 0.5, 0, W * 0.18, H * 0.5, Math.max(W, H) * 0.65);
       gL.addColorStop(0.00, hexToRGBA(leftColor, 0.95));
       gL.addColorStop(0.35, hexToRGBA(leftColor, 0.40));
@@ -981,7 +854,6 @@
       ctx.fillStyle = gL;
       ctx.fillRect(0, 0, W, H);
 
-      // pravé "světlo"
       let gR = ctx.createRadialGradient(W * 0.82, H * 0.5, 0, W * 0.82, H * 0.5, Math.max(W, H) * 0.65);
       gR.addColorStop(0.00, hexToRGBA(rightColor, 0.95));
       gR.addColorStop(0.35, hexToRGBA(rightColor, 0.40));
@@ -990,7 +862,6 @@
       ctx.fillStyle = gR;
       ctx.fillRect(0, 0, W, H);
 
-      // jemná vinětace pro čitelnost okrajů
       const gv = ctx.createRadialGradient(W * 0.5, H * 0.55, Math.min(W, H) * 0.2, W * 0.5, H * 0.5, Math.max(W, H) * 0.9);
       gv.addColorStop(0.00, "rgba(0,0,0,0)");
       gv.addColorStop(1.00, "rgba(0,0,0,0.45)");
@@ -998,7 +869,6 @@
       ctx.fillRect(0, 0, W, H);
     }
 
-    // --- Pozadí (cover nebo fallback gradient) --------------------------
     if (j.meta?.background?.dataUrl) {
       const bg = await loadImage(j.meta.background.dataUrl);
       if (bg) {
@@ -1014,20 +884,17 @@
         drawDualLightGradient(ctx, W, H, cHome, cAway);
       }
     } else {
-      // žádné nahrané pozadí → gradient z barev týmů
       const cHome = j.teams?.home?.color || j.teams?.home?.db?.color || "#ff6a00";
       const cAway = j.teams?.away?.color || j.teams?.away?.db?.color || "#4b6cff";
       drawDualLightGradient(ctx, W, H, cHome, cAway);
     }
 
 
-    // Překryv kvůli čitelnosti
     if (cfg.overlay?.enabled) {
       ctx.fillStyle = `rgba(0,0,0,${cfg.overlay.opacity ?? 0.35})`;
       ctx.fillRect(0, 0, W, H);
     }
 
-    // --- layout výšek podle pravidel --------------------------------
     const logosH = Math.floor(H / 6);
     const namesH = Math.floor(H / 6);
     const scoreH = Math.floor(H / 8);
@@ -1035,7 +902,6 @@
     const eventsTop = logosH + namesH + scoreH;
     const eventsH = Math.max(0, H - statusH - eventsTop);
 
-    // Oblasti
     const areas = {
       logos: { x: 0, y: 0, w: W, h: logosH },
       names: { x: 0, y: logosH, w: W, h: namesH },
@@ -1044,7 +910,6 @@
       status: { x: 0, y: H - statusH, w: W, h: statusH },
     };
 
-    // --- loga --------------------------------------------------------
     const homeLogoPath = j.teams?.home?.db?.logoPath || null;
     const awayLogoPath = j.teams?.away?.db?.logoPath || null;
     const [homeLogo, awayLogo] = await Promise.all([loadImage(homeLogoPath), loadImage(awayLogoPath)]);
@@ -1067,14 +932,12 @@
       ctx.drawImage(awayLogo, x, y, s.w, s.h);
     }
 
-    // --- názvy týmů (stejný výsledný font) --------------------------
     const homeName = j.teams?.home?.displayName || j.teams?.home?.selectedName || "";
     const awayName = j.teams?.away?.displayName || j.teams?.away?.selectedName || "";
 
     const namesPad = pad;
     const colW = halfW - 2 * namesPad;
-    const lineGap = 0.18; // 18% velikosti fontu
-    // horní aproximace výchozí velikosti
+    const lineGap = 0.18;
     let testSize = Math.floor(Math.min(cfg?.names?.size ?? 64, areas.names.h * 0.5));
     if (testSize < 16) testSize = 16;
 
@@ -1085,27 +948,23 @@
       const mHome = measureWrappedHeight(ctx, homeName, colW, lh);
       const mAway = measureWrappedHeight(ctx, awayName, colW, lh);
 
-      // 1) musí se vejít na výšku
       const fitsHeight =
         mHome.height <= areas.names.h - 2 * namesPad &&
         mAway.height <= areas.names.h - 2 * namesPad;
 
       if (!fitsHeight) return false;
 
-      // 2) a zároveň žádný řádek nesmí být širší než dostupný sloupec
       const maxLineWidth = (lines) =>
         lines.reduce((mx, ln) => Math.max(mx, ctx.measureText(ln).width), 0);
 
       const homeW = maxLineWidth(mHome.lines);
       const awayW = maxLineWidth(mAway.lines);
 
-      // malá rezerva kvůli subpixelům
       const EPS = 0.5;
       return homeW <= colW - EPS && awayW <= colW - EPS;
     }
 
 
-    // snižujeme, dokud se nevejdou oba
     while (testSize > 12 && !canFitSameSize(testSize)) testSize -= 1;
 
     setFont(ctx, testSize, cfg?.names?.weight ?? 700);
@@ -1115,30 +974,24 @@
     const homeLines = wrapWordsToLines(ctx, homeName, colW);
     const awayLines = wrapWordsToLines(ctx, awayName, colW);
 
-    // vertikální centrování v rámci names area
     const homeBlockH = homeLines.length * lh;
     const awayBlockH = awayLines.length * lh;
     const baseY = areas.names.y;
 
-    // HOME (levá půlka)
-    let yHome = baseY + Math.round((areas.names.h - homeBlockH) / 2) + testSize; // první řádek baseline
-    for (const line of homeLines) {
+    let yHome = baseY + Math.round((areas.names.h - homeBlockH) / 2) + testSize; for (const line of homeLines) {
       drawShadowedText(ctx, line, namesPad + colW, yHome, "right");
       yHome += lh;
     }
 
-    // AWAY (pravá půlka)
     let yAway = baseY + Math.round((areas.names.h - awayBlockH) / 2) + testSize;
     for (const line of awayLines) {
       drawShadowedText(ctx, line, halfW + namesPad, yAway, "left");
       yAway += lh;
     }
 
-    // --- skóre (prostředek, 1/8 výšky) ------------------------------
     const homeScore = String(j.score?.home ?? "0");
     const awayScore = String(j.score?.away ?? "0");
 
-    // zkusíme font tak, aby se vešla trojice: HOME  gap  "-" gap  AWAY
     const scorePadX = pad;
     const scoreAvailW = W - 2 * scorePadX;
     const dash = "–";
@@ -1171,10 +1024,7 @@
 
     drawShadowedText(ctx, awayScore, xStart, yScore, "left");
 
-    // --- events (zbytek, jednotná velikost, 1 řádek/událost) --------
-    // strategie: sloupec HOME zarovnaný doprava k centru, AWAY doleva od centra; vertikálně podle pořadí (čas).
     const events = Array.isArray(j.events) ? [...j.events] : [];
-    // seřadíme podle času (minute, extra)
     events.sort((a, b) => {
       const ma = Number(a.minute || 0), mb = Number(b.minute || 0);
       if (ma !== mb) return ma - mb;
@@ -1183,7 +1033,6 @@
     });
 
     const n = Math.max(1, events.length);
-    // spočítáme velikost tak, aby se vše vešlo na výšku (line-height ~ 1.35)
     let evSize = Math.floor(cfg?.events?.textSize ?? 36);
     const minEvSize = 14;
     function totalHeightFor(size) {
@@ -1197,7 +1046,6 @@
     ctx.fillStyle = "#ffffff";
 
     const midX = Math.floor(W / 2);
-    // základ: ~3 % šířky plátna (na 1080px ≈ 32 px).
     const baseColGap = Math.max(8, Math.floor(W * 0.03));
     const colGap = Math.max(8, cfg?.events?.colGap ?? baseColGap);
     const startY = areas.events.y + Math.max(pad, Math.round((areas.events.h - totalHeightFor(evSize)) / 2)) + evSize;
@@ -1212,10 +1060,8 @@
       const txt = [mm, sym, pName].filter(Boolean).join("  ");
       const y = startY + idx * evLH;
 
-      // změř skutečnou šířku řádku
       const wTxt = ctx.measureText(txt).width;
 
-      // kotevní body s garancí, že text zůstane v [pad, W - pad]
       const minX = pad;
       const maxX = W - pad;
 
@@ -1223,25 +1069,19 @@
       const isAway = (ev.side || ev.team || "").toLowerCase().startsWith("a");
 
       if (isHome) {
-        // pravé zarovnání – text jde doleva od kotvy
-        // kotva musí splnit: anchor - wTxt >= minX  =>  anchor >= minX + wTxt
         const anchorDefault = midX - colGap;
         const anchor = Math.max(anchorDefault, minX + wTxt);
         drawShadowedText(ctx, txt, anchor, y, "right");
       } else if (isAway) {
-        // levé zarovnání – text jde doprava od kotvy
-        // kotva musí splnit: anchor + wTxt <= maxX  =>  anchor <= maxX - wTxt
         const anchorDefault = midX + colGap;
         const anchor = Math.min(anchorDefault, maxX - wTxt);
         drawShadowedText(ctx, txt, anchor, y, "left");
       } else {
-        // fallback – do středu
         drawShadowedText(ctx, txt, midX, y, "center");
       }
     });
 
 
-    // --- status (spodní 1/10, centrovaně) ----------------------------
     const statusText = j.statusText || "";
     if (statusText) {
       let stSize = Math.floor(cfg?.footer?.textSize ?? 42);
@@ -1256,20 +1096,6 @@
     return canvas;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /** 8) Stažení PNG */
   function downloadCanvas(canvas, ratioLabel, homeName, awayName) {
     const toSlug = (s) => String(s).trim().replace(/\s+/g, '-').replace(/[^A-Za-z0-9\-]/g, '');
     const file = `fotbal-${ratioLabel}-${toSlug(homeName)}-vs-${toSlug(awayName)}.png`;
@@ -1282,7 +1108,6 @@
     }, "image/png");
   }
 
-  /** 9) Veřejné funkce pro tlačítka */
   async function generatePNG916() {
     const c = await renderMatchPNG(PNG_916_CFG);
     const j = buildJson();
@@ -1294,9 +1119,6 @@
     downloadCanvas(c, "4_5", j.teams.home.displayName || j.teams.home.selectedName, j.teams.away.displayName || j.teams.away.selectedName);
   }
 
-  /** 10) Napojení tlačítek – rozšíření stávajícího DOMContentLoaded bloku
-   * (pokud už máš ten blok výše, tohle jen připojí handlery)
-   */
   (() => {
     const b916 = document.getElementById("btnExport916");
     const b45 = document.getElementById("btnExport45");
@@ -1304,21 +1126,18 @@
     if (b45) b45.addEventListener("click", async (e) => { e.preventDefault(); await generatePNG45(); });
   })();
 
-  // Vybere správný konfig podle aktuálního "Poměru stran" z UI/JSON
   function getCurrentCfgByAspect() {
     const j = buildJson();
     const ar = (j.meta?.aspectRatio || "").trim();
-    return ar === "4:5" ? PNG_45_CFG : PNG_916_CFG; // default 9:16
+    return ar === "4:5" ? PNG_45_CFG : PNG_916_CFG;
   }
 
-  // Vykreslí na canvas a vrátí dataURL (PNG)
   async function renderCurrentToDataURL() {
     const cfg = getCurrentCfgByAspect();
     const canvas = await renderMatchPNG(cfg);
     return { url: canvas.toDataURL("image/png"), cfg };
   }
 
-  // Zobrazit náhled pod kartou "Export PNG"
   async function showPreview() {
     const { url, cfg } = await renderCurrentToDataURL();
     const wrap = document.getElementById("previewWrap");
@@ -1326,18 +1145,16 @@
     const img = document.getElementById("exportPreview");
     if (!wrap || !img || !frame) return;
 
-    // přepnutí poměru rámečku podle aktuálního JSON/meta.aspectRatio
     frame.classList.remove("ratio-916", "ratio-45");
     const ar = (buildJson().meta?.aspectRatio || "").trim();
     frame.classList.add(ar === "4:5" ? "ratio-45" : "ratio-916");
 
     img.src = url;
-    img.width = Math.min(cfg.W, 1080); // jen hint pro layout; skutečný rozměr drží PNG
+    img.width = Math.min(cfg.W, 1080);
     wrap.style.display = "flex";
   }
 
 
-  // Napojení tlačítka náhledu
   (() => {
     const bPrev = document.getElementById("btnPreview");
     if (bPrev) bPrev.addEventListener("click", async (e) => {
@@ -1345,5 +1162,4 @@
       await showPreview();
     });
   })();
-
 })();

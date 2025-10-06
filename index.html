@@ -11,12 +11,10 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>Tvorba zápasu (form-only)</h1>
-            <p>Lehká verze bez náhledu a exportu. Podklad lze nahrát jako metadata.</p>
+            <h1>Zlamal</h1>
         </header>
 
         <div class="main-content one-column">
-            <!-- Formulář -->
             <div class="form-section">
                 <div class="card">
                     <div class="card__header">
@@ -24,7 +22,6 @@
                     </div>
 
                     <div class="card__body">
-                        <!-- Podklad (jen metadata, bez náhledu) -->
                         <div class="section-header">
                             <h3>Podklad</h3>
                         </div>
@@ -41,7 +38,6 @@
                             </div>
                         </div>
 
-                        <!-- Formát (ponecháno jako metadata) -->
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label">Poměr stran (meta)</label>
@@ -56,7 +52,6 @@
                             </div>
                         </div>
 
-                        <!-- Týmy -->
                         <div class="section-header">
                             <h3>Týmy</h3>
                         </div>
@@ -86,8 +81,6 @@
                                 <input type="color" id="awayColor" class="form-control" value="#ffffff" />
                             </div>
                         </div>
-
-                        <!-- Skóre -->
                         <div class="section-header">
                             <h3>Skóre</h3>
                         </div>
@@ -102,7 +95,6 @@
                             </div>
                         </div>
 
-                        <!-- Události -->
                         <div class="section-header">
                             <h3>Události</h3>
                         </div>
@@ -150,7 +142,6 @@
 
                         <div id="eventsContainer" class="events-list"></div>
 
-                        <!-- Další nastavení -->
                         <div class="section-header">
                             <h3>Nastavení</h3>
                         </div>
@@ -175,7 +166,6 @@
                 </div>
             </div>
 
-            <!-- Import JSON -->
             <div class="card">
                 <div class="card__header">
                     <h2>Import JSON</h2>
@@ -203,7 +193,6 @@
                 </div>
             </div>
 
-            <!-- JSON náhled + stažení -->
             <div class="card">
                 <div class="card__header">
                     <h2>JSON náhled</h2>
@@ -219,7 +208,6 @@
             <div class="card">
                 <div class="card-header">
                     <h2>Export PNG</h2>
-                    <p class="muted">Vygeneruje obrázek podle aktuálního JSONu. Každý formát má vlastní nastavení.</p>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
@@ -232,9 +220,6 @@
                             <button id="btnExport45" class="btn btn--primary">Vytvořit PNG 4:5</button>
                         </div>
                     </div>
-                    <p class="muted">Pozadí se bere z „Podklad → Obrázek“ (pokud je nahrán). Název souboru:
-                        <em>fotbal-{poměr}-{HOME}-vs-{AWAY}.png</em>
-                    </p>
                 </div>
             </div>
 
@@ -254,9 +239,7 @@
         </div>
     </div>
 
-    <!-- POUZE logika formuláře (bez renderu/exportu) -->
     <script src="teamsData.js"></script>
-
     <script src="main.js"></script>
 </body>
 
