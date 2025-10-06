@@ -853,7 +853,7 @@
 
 
 
-  
+
   /** 3) Vykreslení PNG podle pravidel – vrací HTMLCanvasElement */
   async function renderMatchPNG(cfg) {
     // --- helpers -----------------------------------------------------
@@ -1081,10 +1081,29 @@
     function canFitSameSize(size) {
       setFont(ctx, size, cfg?.names?.weight ?? 700);
       const lh = Math.ceil(size * (1 + lineGap));
+
       const mHome = measureWrappedHeight(ctx, homeName, colW, lh);
       const mAway = measureWrappedHeight(ctx, awayName, colW, lh);
-      return mHome.height <= areas.names.h - 2 * namesPad && mAway.height <= areas.names.h - 2 * namesPad;
+
+      // 1) musí se vejít na výšku
+      const fitsHeight =
+        mHome.height <= areas.names.h - 2 * namesPad &&
+        mAway.height <= areas.names.h - 2 * namesPad;
+
+      if (!fitsHeight) return false;
+
+      // 2) a zároveň žádný řádek nesmí být širší než dostupný sloupec
+      const maxLineWidth = (lines) =>
+        lines.reduce((mx, ln) => Math.max(mx, ctx.measureText(ln).width), 0);
+
+      const homeW = maxLineWidth(mHome.lines);
+      const awayW = maxLineWidth(mAway.lines);
+
+      // malá rezerva kvůli subpixelům
+      const EPS = 0.5;
+      return homeW <= colW - EPS && awayW <= colW - EPS;
     }
+
 
     // snižujeme, dokud se nevejdou oba
     while (testSize > 12 && !canFitSameSize(testSize)) testSize -= 1;
@@ -1183,43 +1202,43 @@
     const colGap = Math.max(8, cfg?.events?.colGap ?? baseColGap);
     const startY = areas.events.y + Math.max(pad, Math.round((areas.events.h - totalHeightFor(evSize)) / 2)) + evSize;
 
-events.forEach((ev, idx) => {
-  const minute = String(ev.minute ?? "");
-  const extra = ev.extra ? `+${ev.extra}` : "";
-  const mm = minute ? `${minute}'${extra}` : "";
-  const pName = truncate(ev.player || ev.playerName || "", 20);
-  const sym = eventSymbol(ev.type || ev.kind);
+    events.forEach((ev, idx) => {
+      const minute = String(ev.minute ?? "");
+      const extra = ev.extra ? `+${ev.extra}` : "";
+      const mm = minute ? `${minute}'${extra}` : "";
+      const pName = truncate(ev.player || ev.playerName || "", 20);
+      const sym = eventSymbol(ev.type || ev.kind);
 
-  const txt = [mm, sym, pName].filter(Boolean).join("  ");
-  const y = startY + idx * evLH;
+      const txt = [mm, sym, pName].filter(Boolean).join("  ");
+      const y = startY + idx * evLH;
 
-  // změř skutečnou šířku řádku
-  const wTxt = ctx.measureText(txt).width;
+      // změř skutečnou šířku řádku
+      const wTxt = ctx.measureText(txt).width;
 
-  // kotevní body s garancí, že text zůstane v [pad, W - pad]
-  const minX = pad;
-  const maxX = W - pad;
+      // kotevní body s garancí, že text zůstane v [pad, W - pad]
+      const minX = pad;
+      const maxX = W - pad;
 
-  const isHome = (ev.side || ev.team || "").toLowerCase().startsWith("h");
-  const isAway = (ev.side || ev.team || "").toLowerCase().startsWith("a");
+      const isHome = (ev.side || ev.team || "").toLowerCase().startsWith("h");
+      const isAway = (ev.side || ev.team || "").toLowerCase().startsWith("a");
 
-  if (isHome) {
-    // pravé zarovnání – text jde doleva od kotvy
-    // kotva musí splnit: anchor - wTxt >= minX  =>  anchor >= minX + wTxt
-    const anchorDefault = midX - colGap;
-    const anchor = Math.max(anchorDefault, minX + wTxt);
-    drawShadowedText(ctx, txt, anchor, y, "right");
-  } else if (isAway) {
-    // levé zarovnání – text jde doprava od kotvy
-    // kotva musí splnit: anchor + wTxt <= maxX  =>  anchor <= maxX - wTxt
-    const anchorDefault = midX + colGap;
-    const anchor = Math.min(anchorDefault, maxX - wTxt);
-    drawShadowedText(ctx, txt, anchor, y, "left");
-  } else {
-    // fallback – do středu
-    drawShadowedText(ctx, txt, midX, y, "center");
-  }
-});
+      if (isHome) {
+        // pravé zarovnání – text jde doleva od kotvy
+        // kotva musí splnit: anchor - wTxt >= minX  =>  anchor >= minX + wTxt
+        const anchorDefault = midX - colGap;
+        const anchor = Math.max(anchorDefault, minX + wTxt);
+        drawShadowedText(ctx, txt, anchor, y, "right");
+      } else if (isAway) {
+        // levé zarovnání – text jde doprava od kotvy
+        // kotva musí splnit: anchor + wTxt <= maxX  =>  anchor <= maxX - wTxt
+        const anchorDefault = midX + colGap;
+        const anchor = Math.min(anchorDefault, maxX - wTxt);
+        drawShadowedText(ctx, txt, anchor, y, "left");
+      } else {
+        // fallback – do středu
+        drawShadowedText(ctx, txt, midX, y, "center");
+      }
+    });
 
 
     // --- status (spodní 1/10, centrovaně) ----------------------------

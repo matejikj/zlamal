@@ -1,5 +1,9 @@
-window.teamsData = Object.freeze(
-  {
+ÚKOL: Vygeneruj mi JSON pro moji stránku ze zápasu na Livesportu podle níže popsaných přísných pravidel. Vrátím pouze validní JSON (bez komentářů a bez dalšího textu okolo).
+
+VSTUP:
+- URL zápasu na Livesportu: https://www.livesport.cz/zapas/fotbal/arsenal-hA1Zm19f/leeds-tUxUbLR2/?mid=zFCHVyGF
+MOJE DATABÁZE TÝMŮ (teamsData) — POUŽIJ PŘESNĚ TAKTO:
+{
     "UEFA Europa League 2025/26": [
       {
         "name": "Aberdeen FC",
@@ -2629,4 +2633,51 @@ window.teamsData = Object.freeze(
       }
     ]
   }
-);
+
+VÝSTUPNÍ JSON — PŘESNÁ STRUKTURA (vracej jen JSON):
+{
+  "meta": {
+    "generatedAt": "ISO-8601",
+    "aspectRatio": "9:16" | "4:5",
+    "league": "ALL" | "<název ligy z teamsData>",
+    "background": null | { "name": "<soubor.ext>", "dataUrl": "data:image/...;base64,..." }
+  },
+  "teams": {
+    "home": {
+      "selectedName": "<název týmu ze seznamu nebo null>",
+      "fromDb": true | false,
+      "db": null | { "name": "<přesně z teamsData>", "short": "<zkratka nebo null>", "color": "<hex nebo null>", "logoPath": "<cesta nebo null>", "league": "<liga>" },
+      "useCustom": true | false,
+      "customName": "<když useCustom=true>" | null,
+      "displayName": "<jméno na zobrazení>",
+      "color": "<hex barva domácích>"
+    },
+    "away": { /* stejná struktura jako home */ }
+  },
+  "score": { "home": <int>, "away": <int> },
+  "statusText": "<LIVE | HALF-TIME | FULL TIME | ...>",
+  "options": { "useShortNames": true | false },
+  "events": [
+    { "id":"<string>", "type":"goal|ownGoal|yellow|twoYellow|red|sub|pen", "team":"home|away", "player":"<text>", "minute":<int>, "extra":"<'+X' nebo ''>" }
+  ]
+}
+
+PRAVIDLA MAPOVÁNÍ:
+1) Z Livesportu načti: soutěž/ligu, oba týmy, finální/průběžné skóre, status, časovou osu (góly, OG, penalty, karty, druhé žluté, červené, střídání s formátem 'A. Hráč → B. Hráč').
+2) Název ligy:
+   - Pokud oba týmy pochází z jedné ligy v teamsData: použij tuto ligu.
+   - Pokud pochází z různých lig (nebo jeden není v DB): nastav "ALL".
+3) Mapování týmů:
+   - Pokus se spárovat přesně podle `name` v teamsData (pozor na diakritiku a varianty názvů).
+   - Když najdeš shodu: `fromDb=true` a vyplň `db` + `selectedName` + `color` = `db.color`.
+   - Když neshoda: `useCustom=true`, `customName` = název z Livesportu, `fromDb=false`, `db=null`, `color`="#ffffff".
+4) displayName:
+   - Pokud `useShortNames=true` a `db.short` existuje → použij zkratku.
+   - Jinak `customName` (je-li `useCustom=true`), jinak `db.name` / `selectedName`.
+5) events:
+   - chci získat pouze příjmení hráče.
+   - `minute`: základní minuta (např. 45), `extra`: "X" pro nastavení (např. 45+2 → minute=45, extra="2").
+   - Typy: goal (gól), ownGoal (vlastní), pen (gól z penalty), yellow, twoYellow, red, sub (střídání).
+6) statusText: určuj z Livesportu (např. LIVE, HALF-TIME, FULL TIME).
+7) aspectRatio nastav defaultně "9:16". background vždy `null`.
+8) Vrať POUZE JSON podle schématu výše — bez dalšího textu, bez komentářů, bez odkazů.
