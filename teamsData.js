@@ -1,5 +1,1273 @@
 window.teamsData = Object.freeze(
   {
+    "National": [
+      {
+        "short": "ESP",
+        "name": "Španělsko",
+        "path": "logos/National/ESP.png",
+        "color": "#AA151B"
+      },
+      {
+        "short": "ARG",
+        "name": "Argentina",
+        "path": "logos/National/ARG.png",
+        "color": "#75AADB"
+      },
+      {
+        "short": "FRA",
+        "name": "Francie",
+        "path": "logos/National/FRA.png",
+        "color": "#0055A4"
+      },
+      {
+        "short": "ENG",
+        "name": "Anglie",
+        "path": "logos/National/ENG.png",
+        "color": "#FFFFFF"
+      },
+      {
+        "short": "PRT",
+        "name": "Portugalsko",
+        "path": "logos/National/PRT.png",
+        "color": "#C00025"
+      },
+      {
+        "short": "NLD",
+        "name": "Nizozemsko",
+        "path": "logos/National/NLD.png",
+        "color": "#FF7900"
+      },
+      {
+        "short": "BRA",
+        "name": "Brazílie",
+        "path": "logos/National/BRA.png",
+        "color": "#F7DD00"
+      },
+      {
+        "short": "BEL",
+        "name": "Belgie",
+        "path": "logos/National/BEL.png",
+        "color": "#E30613"
+      },
+      {
+        "short": "ITA",
+        "name": "Itálie",
+        "path": "logos/National/ITA.png",
+        "color": "#0072CE"
+      },
+      {
+        "short": "DEU",
+        "name": "Německo",
+        "path": "logos/National/DEU.png",
+        "color": "#FFFFFF"
+      },
+      {
+        "short": "HRV",
+        "name": "Chorvatsko",
+        "path": "logos/National/HRV.png",
+        "color": "#C8102E"
+      },
+      {
+        "short": "MAR",
+        "name": "Maroko",
+        "path": "logos/National/MAR.png",
+        "color": "#006233"
+      },
+      {
+        "short": "COL",
+        "name": "Kolumbie",
+        "path": "logos/National/COL.png",
+        "color": "#FCD116"
+      },
+      {
+        "short": "MEX",
+        "name": "Mexiko",
+        "path": "logos/National/MEX.png",
+        "color": "#006847"
+      },
+      {
+        "short": "URY",
+        "name": "Uruguay",
+        "path": "logos/National/URY.png",
+        "color": "#75AADB"
+      },
+      {
+        "short": "USA",
+        "name": "Spojené státy",
+        "path": "logos/National/USA.png",
+        "color": "#002868"
+      },
+      {
+        "short": "CHE",
+        "name": "Švýcarsko",
+        "path": "logos/National/CHE.png",
+        "color": "#D52B1E"
+      },
+      {
+        "short": "SEN",
+        "name": "Senegal",
+        "path": "logos/National/SEN.png",
+        "color": "#00853F"
+      },
+      {
+        "short": "JPN",
+        "name": "Japonsko",
+        "path": "logos/National/JPN.png",
+        "color": "#003B75"
+      },
+      {
+        "short": "DNK",
+        "name": "Dánsko",
+        "path": "logos/National/DNK.png",
+        "color": "#C60C30"
+      },
+      {
+        "short": "IRN",
+        "name": "Írán",
+        "path": "logos/National/IRN.png",
+        "color": "#239F40"
+      },
+      {
+        "short": "KOR",
+        "name": "Jižní Korea",
+        "path": "logos/National/KOR.png",
+        "color": "#C60C30"
+      },
+      {
+        "short": "ECU",
+        "name": "Ekvádor",
+        "path": "logos/National/ECU.png",
+        "color": "#FCD116"
+      },
+      {
+        "short": "AUT",
+        "name": "Rakousko",
+        "path": "logos/National/AUT.png",
+        "color": "#ED2939"
+      },
+      {
+        "short": "AUS",
+        "name": "Austrálie",
+        "path": "logos/National/AUS.png",
+        "color": "#F1C410"
+      },
+      {
+        "short": "TUR",
+        "name": "Türkiye",
+        "path": "logos/National/TUR.png",
+        "color": "#E30A17"
+      },
+      {
+        "short": "UKR",
+        "name": "Ukrajina",
+        "path": "logos/National/UKR.png",
+        "color": "#FFD700"
+      },
+      {
+        "short": "CAN",
+        "name": "Kanada",
+        "path": "logos/National/CAN.png",
+        "color": "#D50000"
+      },
+      {
+        "short": "NOR",
+        "name": "Norsko",
+        "path": "logos/National/NOR.png",
+        "color": "#BA0C2F"
+      },
+      {
+        "short": "RUS",
+        "name": "Rusko",
+        "path": "logos/National/RUS.png",
+        "color": "#D52B1E"
+      },
+      {
+        "short": "PAN",
+        "name": "Panama",
+        "path": "logos/National/PAN.png",
+        "color": "#005DA4"
+      },
+      {
+        "short": "EGY",
+        "name": "Egypt",
+        "path": "logos/National/EGY.png",
+        "color": "#CE1126"
+      },
+      {
+        "short": "POL",
+        "name": "Polsko",
+        "path": "logos/National/POL.png",
+        "color": "#DC143C"
+      },
+      {
+        "short": "WAL",
+        "name": "Wales",
+        "path": "logos/National/WAL.png",
+        "color": "#D30731"
+      },
+      {
+        "short": "DZA",
+        "name": "Alžírsko",
+        "path": "logos/National/DZA.png",
+        "color": "#006E34"
+      },
+      {
+        "short": "SRB",
+        "name": "Srbsko",
+        "path": "logos/National/SRB.png",
+        "color": "#1C3578"
+      },
+      {
+        "short": "HUN",
+        "name": "Maďarsko",
+        "path": "logos/National/HUN.png",
+        "color": "#CE2939"
+      },
+      {
+        "short": "SCO",
+        "name": "Skotsko",
+        "path": "logos/National/SCO.png",
+        "color": "#041E42"
+      },
+      {
+        "short": "PRY",
+        "name": "Paraguay",
+        "path": "logos/National/PRY.png",
+        "color": "#D52B1E"
+      },
+      {
+        "short": "SWE",
+        "name": "Švédsko",
+        "path": "logos/National/SWE.png",
+        "color": "#FFCD00"
+      },
+      {
+        "short": "NGA",
+        "name": "Nigérie",
+        "path": "logos/National/NGA.png",
+        "color": "#008751"
+      },
+      {
+        "short": "CIV",
+        "name": "Pobřeží slonoviny",
+        "path": "logos/National/CIV.png",
+        "color": "#F77F00"
+      },
+      {
+        "short": "TUN",
+        "name": "Tunisko",
+        "path": "logos/National/TUN.png",
+        "color": "#E31E24"
+      },
+      {
+        "short": "CZE",
+        "name": "Česko",
+        "path": "logos/National/CZE.png",
+        "color": "#11457E"
+      },
+      {
+        "short": "CRI",
+        "name": "Kostarika",
+        "path": "logos/National/CRI.png",
+        "color": "#0038A8"
+      },
+      {
+        "short": "SVK",
+        "name": "Slovensko",
+        "path": "logos/National/SVK.png",
+        "color": "#0B4EA2"
+      },
+      {
+        "short": "ROU",
+        "name": "Rumunsko",
+        "path": "logos/National/ROU.png",
+        "color": "#FFD200"
+      },
+      {
+        "short": "GRC",
+        "name": "Řecko",
+        "path": "logos/National/GRC.png",
+        "color": "#0D5EAF"
+      },
+      {
+        "short": "PER",
+        "name": "Peru",
+        "path": "logos/National/PER.png",
+        "color": "#D91023"
+      },
+      {
+        "short": "VEN",
+        "name": "Venezuela",
+        "path": "logos/National/VEN.png",
+        "color": "#7A0026"
+      },
+      {
+        "short": "SVN",
+        "name": "Slovinsko",
+        "path": "logos/National/SVN.png",
+        "color": "#005DA4"
+      },
+      {
+        "short": "QAT",
+        "name": "Katar",
+        "path": "logos/National/QAT.png",
+        "color": "#8A1538"
+      },
+      {
+        "short": "MLI",
+        "name": "Mali",
+        "path": "logos/National/MLI.png",
+        "color": "#009E49"
+      },
+      {
+        "short": "CMR",
+        "name": "Kamerun",
+        "path": "logos/National/CMR.png",
+        "color": "#007A5E"
+      },
+      {
+        "short": "UZB",
+        "name": "Uzbekistán",
+        "path": "logos/National/UZB.png",
+        "color": "#0099B5"
+      },
+      {
+        "short": "CHL",
+        "name": "Chile",
+        "path": "logos/National/CHL.png",
+        "color": "#0039A6"
+      },
+      {
+        "short": "IRQ",
+        "name": "Irák",
+        "path": "logos/National/IRQ.png",
+        "color": "#007A3D"
+      },
+      {
+        "short": "SAU",
+        "name": "Saúdská Arábie",
+        "path": "logos/National/SAU.png",
+        "color": "#006C35"
+      },
+      {
+        "short": "ZAF",
+        "name": "Jihoafrická republika",
+        "path": "logos/National/ZAF.png",
+        "color": "#007749"
+      },
+      {
+        "short": "COD",
+        "name": "Kongo (DRK)",
+        "path": "logos/National/COD.png",
+        "color": "#1F8BDE"
+      },
+      {
+        "short": "ALB",
+        "name": "Albánie",
+        "path": "logos/National/ALB.png",
+        "color": "#E41E20"
+      },
+      {
+        "short": "IRL",
+        "name": "Republic of Ireland",
+        "path": "logos/National/IRL.png",
+        "color": "#169B62"
+      },
+      {
+        "short": "BFA",
+        "name": "Burkina Faso",
+        "path": "logos/National/BFA.png",
+        "color": "#009E49"
+      },
+      {
+        "short": "HND",
+        "name": "Honduras",
+        "path": "logos/National/HND.png",
+        "color": "#0073CF"
+      },
+      {
+        "short": "MKD",
+        "name": "Severní Makedonie",
+        "path": "logos/National/MKD.png",
+        "color": "#D20000"
+      },
+      {
+        "short": "JOR",
+        "name": "Jordánsko",
+        "path": "logos/National/JOR.png",
+        "color": "#007A3D"
+      },
+      {
+        "short": "ARE",
+        "name": "Spojené arabské emiráty",
+        "path": "logos/National/ARE.png",
+        "color": "#00732F"
+      },
+      {
+        "short": "JAM",
+        "name": "Jamajka",
+        "path": "logos/National/JAM.png",
+        "color": "#1F8B4C"
+      },
+      {
+        "short": "NIR",
+        "name": "Severní Irsko",
+        "path": "logos/National/NIR.png",
+        "color": "#00965E"
+      },
+      {
+        "short": "GEO",
+        "name": "Gruzie",
+        "path": "logos/National/GEO.png",
+        "color": "#DA121A"
+      },
+      {
+        "short": "CPV",
+        "name": "Kapverdy",
+        "path": "logos/National/CPV.png",
+        "color": "#003893"
+      },
+      {
+        "short": "FIN",
+        "name": "Finsko",
+        "path": "logos/National/FIN.png",
+        "color": "#002F6C"
+      },
+      {
+        "short": "GHA",
+        "name": "Ghana",
+        "path": "logos/National/GHA.png",
+        "color": "#006A4E"
+      },
+      {
+        "short": "ISL",
+        "name": "Island",
+        "path": "logos/National/ISL.png",
+        "color": "#02529C"
+      },
+      {
+        "short": "BIH",
+        "name": "Bosna a Hercegovina",
+        "path": "logos/National/BIH.png",
+        "color": "#1C57A7"
+      },
+      {
+        "short": "BOL",
+        "name": "Bolívie",
+        "path": "logos/National/BOL.png",
+        "color": "#1C8A42"
+      },
+      {
+        "short": "GAB",
+        "name": "Gabon",
+        "path": "logos/National/GAB.png",
+        "color": "#1A9988"
+      },
+      {
+        "short": "ISR",
+        "name": "Izrael",
+        "path": "logos/National/ISR.png",
+        "color": "#0038B8"
+      },
+      {
+        "short": "OMN",
+        "name": "Omán",
+        "path": "logos/National/OMN.png",
+        "color": "#C8102E"
+      },
+      {
+        "short": "GIN",
+        "name": "Guinea",
+        "path": "logos/National/GIN.png",
+        "color": "#009460"
+      },
+      {
+        "short": "MNE",
+        "name": "Černá Hora",
+        "path": "logos/National/MNE.png",
+        "color": "#C8102E"
+      },
+      {
+        "short": "CUW",
+        "name": "Curaçao",
+        "path": "logos/National/CUW.png",
+        "color": "#002B7F"
+      },
+      {
+        "short": "UGA",
+        "name": "Uganda",
+        "path": "logos/National/UGA.png",
+        "color": "#FCDC04"
+      },
+      {
+        "short": "RKS",
+        "name": "Kosovo",
+        "path": "logos/National/RKS.png",
+        "color": "#244AA5"
+      },
+      {
+        "short": "NZL",
+        "name": "Nový Zéland",
+        "path": "logos/National/NZL.png",
+        "color": "#000000"
+      },
+      {
+        "short": "SYR",
+        "name": "Sýrie",
+        "path": "logos/National/SYR.png",
+        "color": "#CE1126"
+      },
+      {
+        "short": "ZMB",
+        "name": "Zambie",
+        "path": "logos/National/ZMB.png",
+        "color": "#00A859"
+      },
+      {
+        "short": "HTI",
+        "name": "Haiti",
+        "path": "logos/National/HTI.png",
+        "color": "#00209F"
+      },
+      {
+        "short": "AGO",
+        "name": "Angola",
+        "path": "logos/National/AGO.png",
+        "color": "#E41F26"
+      },
+      {
+        "short": "BHR",
+        "name": "Bahrajn",
+        "path": "logos/National/BHR.png",
+        "color": "#C8102E"
+      },
+      {
+        "short": "BGR",
+        "name": "Bulharsko",
+        "path": "logos/National/BGR.png",
+        "color": "#00866E"
+      },
+      {
+        "short": "BEN",
+        "name": "Benin",
+        "path": "logos/National/BEN.png",
+        "color": "#FCD116"
+      },
+      {
+        "short": "CHN",
+        "name": "Čína",
+        "path": "logos/National/CHN.png",
+        "color": "#DE2910"
+      },
+      {
+        "short": "SLV",
+        "name": "Salvador",
+        "path": "logos/National/SLV.png",
+        "color": "#0047AB"
+      },
+      {
+        "short": "GTM",
+        "name": "Guatemala",
+        "path": "logos/National/GTM.png",
+        "color": "#5BC0EB"
+      },
+      {
+        "short": "THA",
+        "name": "Thajsko",
+        "path": "logos/National/THA.png",
+        "color": "#2D2A4A"
+      },
+      {
+        "short": "LUX",
+        "name": "Lucembursko",
+        "path": "logos/National/LUX.png",
+        "color": "#00A3E0"
+      },
+      {
+        "short": "PSE",
+        "name": "Palestina",
+        "path": "logos/National/PSE.png",
+        "color": "#007A3D"
+      },
+      {
+        "short": "GNQ",
+        "name": "Rovníková Guinea",
+        "path": "logos/National/GNQ.png",
+        "color": "#2CA04A"
+      },
+      {
+        "short": "TTO",
+        "name": "Trinidad a Tobago",
+        "path": "logos/National/TTO.png",
+        "color": "#E10600"
+      },
+      {
+        "short": "MOZ",
+        "name": "Mosambik",
+        "path": "logos/National/MOZ.png",
+        "color": "#007A36"
+      },
+      {
+        "short": "TJK",
+        "name": "Tádžikistán",
+        "path": "logos/National/TJK.png",
+        "color": "#006C35"
+      },
+      {
+        "short": "BLR",
+        "name": "Bělorusko",
+        "path": "logos/National/BLR.png",
+        "color": "#C8313E"
+      },
+      {
+        "short": "ARM",
+        "name": "Arménie",
+        "path": "logos/National/ARM.png",
+        "color": "#0033A0"
+      },
+      {
+        "short": "KGZ",
+        "name": "Kyrgyzstán",
+        "path": "logos/National/KGZ.png",
+        "color": "#E8112D"
+      },
+      {
+        "short": "MDG",
+        "name": "Madagaskar",
+        "path": "logos/National/MDG.png",
+        "color": "#007E3A"
+      },
+      {
+        "short": "TZA",
+        "name": "Tanzanie",
+        "path": "logos/National/TZA.png",
+        "color": "#1EB53A"
+      },
+      {
+        "short": "NGA",
+        "name": "Nigérie",
+        "path": "logos/National/NGA.png",
+        "color": "#008751"
+      },
+      {
+        "short": "KEN",
+        "name": "Keňa",
+        "path": "logos/National/KEN.png",
+        "color": "#2B9E43"
+      },
+      {
+        "short": "LBN",
+        "name": "Libanon",
+        "path": "logos/National/LBN.png",
+        "color": "#ED1C24"
+      },
+      {
+        "short": "VNM",
+        "name": "Vietnam",
+        "path": "logos/National/VNM.png",
+        "color": "#DA251D"
+      },
+      {
+        "short": "COM",
+        "name": "Komory",
+        "path": "logos/National/COM.png",
+        "color": "#FCD116"
+      },
+      {
+        "short": "MRT",
+        "name": "Mauritánie",
+        "path": "logos/National/MRT.png",
+        "color": "#007A3D"
+      },
+      {
+        "short": "LBY",
+        "name": "Libye",
+        "path": "logos/National/LBY.png",
+        "color": "#239E46"
+      },
+      {
+        "short": "KAZ",
+        "name": "Kazachstán",
+        "path": "logos/National/KAZ.png",
+        "color": "#00B2FF"
+      },
+      {
+        "short": "NAM",
+        "name": "Namibie",
+        "path": "logos/National/NAM.png",
+        "color": "#0067A5"
+      },
+      {
+        "short": "GMB",
+        "name": "Gambie",
+        "path": "logos/National/GMB.png",
+        "color": "#3E8E41"
+      },
+      {
+        "short": "MYS",
+        "name": "Malajsie",
+        "path": "logos/National/MYS.png",
+        "color": "#FFCC00"
+      },
+      {
+        "short": "SDN",
+        "name": "Súdán",
+        "path": "logos/National/SDN.png",
+        "color": "#D21034"
+      },
+      {
+        "short": "PRK",
+        "name": "Severní Korea",
+        "path": "logos/National/PRK.png",
+        "color": "#024FA2"
+      },
+      {
+        "short": "SLE",
+        "name": "Sierra Leone",
+        "path": "logos/National/SLE.png",
+        "color": "#1EB53A"
+      },
+      {
+        "short": "IDN",
+        "name": "Indonésie",
+        "path": "logos/National/IDN.png",
+        "color": "#D00000"
+      },
+      {
+        "short": "AZE",
+        "name": "Ázerbájdžán",
+        "path": "logos/National/AZE.png",
+        "color": "#00B9E4"
+      },
+      {
+        "short": "TGO",
+        "name": "Togo",
+        "path": "logos/National/TGO.png",
+        "color": "#006A4E"
+      },
+      {
+        "short": "CYP",
+        "name": "Kypr",
+        "path": "logos/National/CYP.png",
+        "color": "#E77312"
+      },
+      {
+        "short": "SUR",
+        "name": "Surinam",
+        "path": "logos/National/SUR.png",
+        "color": "#377E3F"
+      },
+      {
+        "short": "FRO",
+        "name": "Faerské ostrovy",
+        "path": "logos/National/FRO.png",
+        "color": "#0165BF"
+      },
+      {
+        "short": "MWI",
+        "name": "Malawi",
+        "path": "logos/National/MWI.png",
+        "color": "#1E1E1E"
+      },
+      {
+        "short": "ZWE",
+        "name": "Zimbabwe",
+        "path": "logos/National/ZWE.png",
+        "color": "#FFD200"
+      },
+      {
+        "short": "EST",
+        "name": "Estonsko",
+        "path": "logos/National/EST.png",
+        "color": "#0072CE"
+      },
+      {
+        "short": "RWA",
+        "name": "Rwanda",
+        "path": "logos/National/RWA.png",
+        "color": "#FFD100"
+      },
+      {
+        "short": "GNB",
+        "name": "Guinea-Bissau",
+        "path": "logos/National/GNB.png",
+        "color": "#FCD116"
+      },
+      {
+        "short": "NIC",
+        "name": "Nikaragua",
+        "path": "logos/National/NIC.png",
+        "color": "#0067C6"
+      },
+      {
+        "short": "COG",
+        "name": "Kongo",
+        "path": "logos/National/COG.png",
+        "color": "#009543"
+      },
+      {
+        "short": "KWT",
+        "name": "Kuvajt",
+        "path": "logos/National/KWT.png",
+        "color": "#007A3D"
+      },
+      {
+        "short": "IND",
+        "name": "Indie",
+        "path": "logos/National/IND.png",
+        "color": "#FF671F"
+      },
+      {
+        "short": "BWA",
+        "name": "Botswana",
+        "path": "logos/National/BWA.png",
+        "color": "#6CCFF6"
+      },
+      {
+        "short": "LBR",
+        "name": "Libérie",
+        "path": "logos/National/LBR.png",
+        "color": "#C8102E"
+      },
+      {
+        "short": "LVA",
+        "name": "Lotyšsko",
+        "path": "logos/National/LVA.png",
+        "color": "#9E1B34"
+      },
+      {
+        "short": "CAF",
+        "name": "Středoafrická republika",
+        "path": "logos/National/CAF.png",
+        "color": "#003082"
+      },
+      {
+        "short": "PHL",
+        "name": "Filipíny",
+        "path": "logos/National/PHL.png",
+        "color": "#0038A8"
+      },
+      {
+        "short": "TKM",
+        "name": "Turkmenistán",
+        "path": "logos/National/TKM.png",
+        "color": "#0CB14B"
+      },
+      {
+        "short": "DOM",
+        "name": "Dominikánská republika",
+        "path": "logos/National/DOM.png",
+        "color": "#002D62"
+      },
+      {
+        "short": "LSO",
+        "name": "Lesotho",
+        "path": "logos/National/LSO.png",
+        "color": "#003DA5"
+      },
+      {
+        "short": "BDI",
+        "name": "Burundi",
+        "path": "logos/National/BDI.png",
+        "color": "#007A3D"
+      },
+      {
+        "short": "LTU",
+        "name": "Litva",
+        "path": "logos/National/LTU.png",
+        "color": "#FDB913"
+      },
+      {
+        "short": "ETH",
+        "name": "Etiopie",
+        "path": "logos/National/ETH.png",
+        "color": "#009A44"
+      },
+      {
+        "short": "HKG",
+        "name": "Hongkong",
+        "path": "logos/National/HKG.png",
+        "color": "#C8102E"
+      },
+      {
+        "short": "SLB",
+        "name": "Šalamounovy ostrovy",
+        "path": "logos/National/SLB.png",
+        "color": "#0051BA"
+      },
+      {
+        "short": "NCL",
+        "name": "Nová Kaledonie",
+        "path": "logos/National/NCL.png",
+        "color": "#00A886"
+      },
+      {
+        "short": "SKN",
+        "name": "St Kitts and Nevis",
+        "path": "logos/National/SKN.png",
+        "color": "#009E49"
+      },
+      {
+        "short": "YEM",
+        "name": "Jemen",
+        "path": "logos/National/YEM.png",
+        "color": "#CE1126"
+      },
+      {
+        "short": "GUY",
+        "name": "Guyana",
+        "path": "logos/National/GUY.png",
+        "color": "#009E49"
+      },
+      {
+        "short": "FJI",
+        "name": "Fidži",
+        "path": "logos/National/FJI.png",
+        "color": "#5BC0EB"
+      },
+      {
+        "short": "SGP",
+        "name": "Singapur",
+        "path": "logos/National/SGP.png",
+        "color": "#E43D30"
+      },
+      {
+        "short": "MDA",
+        "name": "Moldavsko",
+        "path": "logos/National/MDA.png",
+        "color": "#0032A0"
+      },
+      {
+        "short": "PUR",
+        "name": "Portoriko",
+        "path": "logos/National/PUR.png",
+        "color": "#0038A8"
+      },
+      {
+        "short": "TAH",
+        "name": "Tahiti",
+        "path": "logos/National/TAH.png",
+        "color": "#8A1538"
+      },
+      {
+        "short": "SWZ",
+        "name": "Eswatini (Svazijsko)",
+        "path": "logos/National/SWZ.png",
+        "color": "#003DA5"
+      },
+      {
+        "short": "ATG",
+        "name": "Antigua a Barbuda",
+        "path": "logos/National/ATG.png",
+        "color": "#CE1126"
+      },
+      {
+        "short": "VUT",
+        "name": "Vanuatu",
+        "path": "logos/National/VUT.png",
+        "color": "#007A3D"
+      },
+      {
+        "short": "AFG",
+        "name": "Afghánistán",
+        "path": "logos/National/AFG.png",
+        "color": "#000000"
+      },
+      {
+        "short": "MMR",
+        "name": "Myanmar (Barma)",
+        "path": "logos/National/MMR.png",
+        "color": "#FCD116"
+      },
+      {
+        "short": "LCA",
+        "name": "St Lucia",
+        "path": "logos/National/LCA.png",
+        "color": "#00A3E0"
+      },
+      {
+        "short": "GRD",
+        "name": "Grenada",
+        "path": "logos/National/GRD.png",
+        "color": "#009739"
+      },
+      {
+        "short": "MLT",
+        "name": "Malta",
+        "path": "logos/National/MLT.png",
+        "color": "#C8102E"
+      },
+      {
+        "short": "SSD",
+        "name": "Jižní Súdán",
+        "path": "logos/National/SSD.png",
+        "color": "#00853F"
+      },
+      {
+        "short": "BER",
+        "name": "Bermudy",
+        "path": "logos/National/BER.png",
+        "color": "#0038A8"
+      },
+      {
+        "short": "CUB",
+        "name": "Kuba",
+        "path": "logos/National/CUB.png",
+        "color": "#002A8F"
+      },
+      {
+        "short": "PNG",
+        "name": "Papua-Nová Guinea",
+        "path": "logos/National/PNG.png",
+        "color": "#000000"
+      },
+      {
+        "short": "VIN",
+        "name": "St Vincent and the Grenadines",
+        "path": "logos/National/VIN.png",
+        "color": "#1F8B4C"
+      },
+      {
+        "short": "AND",
+        "name": "Andorra",
+        "path": "logos/National/AND.png",
+        "color": "#0038A8"
+      },
+      {
+        "short": "MDV",
+        "name": "Maledivy",
+        "path": "logos/National/MDV.png",
+        "color": "#D21034"
+      },
+      {
+        "short": "TPE",
+        "name": "Čínská Tchaj-pej",
+        "path": "logos/National/TPE.png",
+        "color": "#000095"
+      },
+      {
+        "short": "BRB",
+        "name": "Barbados",
+        "path": "logos/National/BRB.png",
+        "color": "#00267F"
+      },
+      {
+        "short": "MSR",
+        "name": "Montserrat",
+        "path": "logos/National/MSR.png",
+        "color": "#007A3D"
+      },
+      {
+        "short": "MUS",
+        "name": "Mauricius",
+        "path": "logos/National/MUS.png",
+        "color": "#00A651"
+      },
+      {
+        "short": "TCD",
+        "name": "Čad",
+        "path": "logos/National/TCD.png",
+        "color": "#FFCD00"
+      },
+      {
+        "short": "KHM",
+        "name": "Kambodža",
+        "path": "logos/National/KHM.png",
+        "color": "#032EA1"
+      },
+      {
+        "short": "NPL",
+        "name": "Nepál",
+        "path": "logos/National/NPL.png",
+        "color": "#DC143C"
+      },
+      {
+        "short": "BLZ",
+        "name": "Belize",
+        "path": "logos/National/BLZ.png",
+        "color": "#0038A8"
+      },
+      {
+        "short": "DMA",
+        "name": "Dominika",
+        "path": "logos/National/DMA.png",
+        "color": "#006B3F"
+      },
+      {
+        "short": "BGD",
+        "name": "Bangladéš",
+        "path": "logos/National/BGD.png",
+        "color": "#006A4E"
+      },
+      {
+        "short": "ASA",
+        "name": "Americká Samoa",
+        "path": "logos/National/ASA.png",
+        "color": "#0038A8"
+      },
+      {
+        "short": "BRN",
+        "name": "Brunej",
+        "path": "logos/National/BRN.png",
+        "color": "#F7E214"
+      },
+      {
+        "short": "MNG",
+        "name": "Mongolsko",
+        "path": "logos/National/MNG.png",
+        "color": "#0033A0"
+      },
+      {
+        "short": "COK",
+        "name": "Cookovy ostrovy",
+        "path": "logos/National/COK.png",
+        "color": "#00247D"
+      },
+      {
+        "short": "LAO",
+        "name": "Laos",
+        "path": "logos/National/LAO.png",
+        "color": "#002868"
+      },
+      {
+        "short": "BTN",
+        "name": "Bhútán",
+        "path": "logos/National/BTN.png",
+        "color": "#FFCC00"
+      },
+      {
+        "short": "WSM",
+        "name": "Samoa",
+        "path": "logos/National/WSM.png",
+        "color": "#0038A8"
+      },
+      {
+        "short": "STP",
+        "name": "Svatý Tomáš a Princův ostrov",
+        "path": "logos/National/STP.png",
+        "color": "#009739"
+      },
+      {
+        "short": "MAC",
+        "name": "Macao",
+        "path": "logos/National/MAC.png",
+        "color": "#007E5E"
+      },
+      {
+        "short": "LKA",
+        "name": "Srí Lanka",
+        "path": "logos/National/LKA.png",
+        "color": "#FFB300"
+      },
+      {
+        "short": "ARU",
+        "name": "Aruba",
+        "path": "logos/National/ARU.png",
+        "color": "#00A3E0"
+      },
+      {
+        "short": "CYM",
+        "name": "Kajmanské ostrovy",
+        "path": "logos/National/CYM.png",
+        "color": "#00247D"
+      },
+      {
+        "short": "DJI",
+        "name": "Džibutsko",
+        "path": "logos/National/DJI.png",
+        "color": "#6AB2E7"
+      },
+      {
+        "short": "TLS",
+        "name": "Východní Timor",
+        "path": "logos/National/TLS.png",
+        "color": "#006B3F"
+      },
+      {
+        "short": "PAK",
+        "name": "Pákistán",
+        "path": "logos/National/PAK.png",
+        "color": "#115740"
+      },
+      {
+        "short": "TON",
+        "name": "Tonga",
+        "path": "logos/National/TON.png",
+        "color": "#C8102E"
+      },
+      {
+        "short": "GIB",
+        "name": "Gibraltar",
+        "path": "logos/National/GIB.png",
+        "color": "#C8102E"
+      },
+      {
+        "short": "GUM",
+        "name": "Guam",
+        "path": "logos/National/GUM.png",
+        "color": "#002B7F"
+      },
+      {
+        "short": "SOM",
+        "name": "Somálsko",
+        "path": "logos/National/SOM.png",
+        "color": "#4189DD"
+      },
+      {
+        "short": "BHS",
+        "name": "Bahamy",
+        "path": "logos/National/BHS.png",
+        "color": "#00A3E0"
+      },
+      {
+        "short": "SYC",
+        "name": "Seychely",
+        "path": "logos/National/SYC.png",
+        "color": "#FCD116"
+      },
+      {
+        "short": "TCA",
+        "name": "Turks a Caicos",
+        "path": "logos/National/TCA.png",
+        "color": "#00247D"
+      },
+      {
+        "short": "LIE",
+        "name": "Lichtenštejnsko",
+        "path": "logos/National/LIE.png",
+        "color": "#002F6C"
+      },
+      {
+        "short": "VIR",
+        "name": "US Virgin Islands",
+        "path": "logos/National/VIR.png",
+        "color": "#002868"
+      },
+      {
+        "short": "VGB",
+        "name": "Britské Panenské ostrovy",
+        "path": "logos/National/VGB.png",
+        "color": "#00247D"
+      },
+      {
+        "short": "AIA",
+        "name": "Anguilla",
+        "path": "logos/National/AIA.png",
+        "color": "#00247D"
+      },
+      {
+        "short": "SMR",
+        "name": "San Marino",
+        "path": "logos/National/SMR.png",
+        "color": "#75AADB"
+      },
+      {
+        "short": "ERI",
+        "name": "Eritrea (unranked)",
+        "path": "logos/National/ERI.png",
+        "color": "#E31E24"
+      }
+    ],
     "UEFA Europa League 2025/26": [
       { "name": "Aston Villa FC", "path": "logos/52683.png", "color": "#670E36", "short": "AVL" },
       { "name": "FC Basel 1893", "path": "logos/59856.png", "color": "#DD052B", "short": "BAS" },
@@ -177,22 +1445,22 @@ window.teamsData = Object.freeze(
       { "name": "VfL Wolfsburg", "path": "logos/Germany - Bundesliga/VfL Wolfsburg.png", "color": "#49A942", "short": "WOB" }
     ],
     "Fortuna Liga": [
-      { "name": "1.FC Slovacko", "path": "logos/Czech Republic - Chance Liga/1.FC Slovacko.png", "color": "#002B5C", "short": "SLO" },
-      { "name": "AC Sparta Prague", "path": "logos/Czech Republic - Chance Liga/AC Sparta Prague.png", "color": "#6E0A1E", "short": "SPA" },
-      { "name": "Bohemians Prague 1905", "path": "logos/Czech Republic - Chance Liga/Bohemians Prague 1905.png", "color": "#00A859", "short": "BOH" },
-      { "name": "FC Banik Ostrava", "path": "logos/Czech Republic - Chance Liga/FC Banik Ostrava.png", "color": "#00AEEF", "short": "BAN" },
-      { "name": "FC Hradec Kralove", "path": "logos/Czech Republic - Chance Liga/FC Hradec Kralove.png", "color": "#000000", "short": "HKR" },
+      { "name": "1. FC Slovácko", "path": "logos/Czech Republic - Chance Liga/1.FC Slovacko.png", "color": "#002B5C", "short": "SLO" },
+      { "name": "AC Sparta Praha", "path": "logos/Czech Republic - Chance Liga/AC Sparta Prague.png", "color": "#6E0A1E", "short": "SPA" },
+      { "name": "Bohemians Praha 1905", "path": "logos/Czech Republic - Chance Liga/Bohemians Prague 1905.png", "color": "#00A859", "short": "BOH" },
+      { "name": "FC Baník Ostrava", "path": "logos/Czech Republic - Chance Liga/FC Banik Ostrava.png", "color": "#00AEEF", "short": "BAN" },
+      { "name": "FC Hradec Králové", "path": "logos/Czech Republic - Chance Liga/FC Hradec Kralove.png", "color": "#000000", "short": "HKR" },
       { "name": "FC Slovan Liberec", "path": "logos/Czech Republic - Chance Liga/FC Slovan Liberec.png", "color": "#0054A6", "short": "LIB" },
-      { "name": "FC Viktoria Plzen", "path": "logos/Czech Republic - Chance Liga/FC Viktoria Plzen.png", "color": "#0056A3", "short": "PLZ" },
-      { "name": "FC Zlin", "path": "logos/Czech Republic - Chance Liga/FC Zlin.png", "color": "#FFD200", "short": "ZLN" },
-      { "name": "FK Dukla Prague", "path": "logos/Czech Republic - Chance Liga/FK Dukla Prague.png", "color": "#7B1E22", "short": "DUK" },
+      { "name": "FC Viktoria Plzeň", "path": "logos/Czech Republic - Chance Liga/FC Viktoria Plzen.png", "color": "#0056A3", "short": "PLZ" },
+      { "name": "FC Zlín", "path": "logos/Czech Republic - Chance Liga/FC Zlin.png", "color": "#FFD200", "short": "ZLN" },
+      { "name": "FK Dukla Praha", "path": "logos/Czech Republic - Chance Liga/FK Dukla Prague.png", "color": "#7B1E22", "short": "DUK" },
       { "name": "FK Jablonec", "path": "logos/Czech Republic - Chance Liga/FK Jablonec.png", "color": "#0B9444", "short": "JAB" },
-      { "name": "FK Mlada Boleslav", "path": "logos/Czech Republic - Chance Liga/FK Mlada Boleslav.png", "color": "#00A0E3", "short": "MBA" },
+      { "name": "FK Mladá Boleslav", "path": "logos/Czech Republic - Chance Liga/FK Mlada Boleslav.png", "color": "#00A0E3", "short": "MBA" },
       { "name": "FK Pardubice", "path": "logos/Czech Republic - Chance Liga/FK Pardubice.png", "color": "#E10600", "short": "PAR" },
       { "name": "FK Teplice", "path": "logos/Czech Republic - Chance Liga/FK Teplice.png", "color": "#FFD600", "short": "TEP" },
-      { "name": "MFK Karvina", "path": "logos/Czech Republic - Chance Liga/MFK Karvina.png", "color": "#008F4B", "short": "KAR" },
+      { "name": "MFK Karviná", "path": "logos/Czech Republic - Chance Liga/MFK Karvina.png", "color": "#008F4B", "short": "KAR" },
       { "name": "SK Sigma Olomouc", "path": "logos/Czech Republic - Chance Liga/SK Sigma Olomouc.png", "color": "#0054A6", "short": "OLO" },
-      { "name": "SK Slavia Prague", "path": "logos/Czech Republic - Chance Liga/SK Slavia Prague.png", "color": "#D22630", "short": "SLA" }
+      { "name": "SK Slavia Praha", "path": "logos/Czech Republic - Chance Liga/SK Slavia Prague.png", "color": "#D22630", "short": "SLA" }
     ],
     "La Liga": [
       { "name": "Athletic Bilbao", "path": "logos/Spain - LaLiga/Athletic Bilbao.png", "color": "#EE2737", "short": "ATH" },

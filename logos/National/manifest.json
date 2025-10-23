@@ -1,0 +1,1268 @@
+[
+  {
+    "short": "ESP",
+    "name": "Španělsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ESP",
+    "savedPath": "flags_out/ESP.png"
+  },
+  {
+    "short": "ARG",
+    "name": "Argentina",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ARG",
+    "savedPath": "flags_out/ARG.png"
+  },
+  {
+    "short": "FRA",
+    "name": "Francie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/FRA",
+    "savedPath": "flags_out/FRA.png"
+  },
+  {
+    "short": "ENG",
+    "name": "Anglie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ENG",
+    "savedPath": "flags_out/ENG.png"
+  },
+  {
+    "short": "PRT",
+    "name": "Portugalsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/POR",
+    "savedPath": "flags_out/PRT.png"
+  },
+  {
+    "short": "NLD",
+    "name": "Nizozemsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/NED",
+    "savedPath": "flags_out/NLD.png"
+  },
+  {
+    "short": "BRA",
+    "name": "Brazílie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BRA",
+    "savedPath": "flags_out/BRA.png"
+  },
+  {
+    "short": "BEL",
+    "name": "Belgie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BEL",
+    "savedPath": "flags_out/BEL.png"
+  },
+  {
+    "short": "ITA",
+    "name": "Itálie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ITA",
+    "savedPath": "flags_out/ITA.png"
+  },
+  {
+    "short": "DEU",
+    "name": "Německo",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GER",
+    "savedPath": "flags_out/DEU.png"
+  },
+  {
+    "short": "HRV",
+    "name": "Chorvatsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CRO",
+    "savedPath": "flags_out/HRV.png"
+  },
+  {
+    "short": "MAR",
+    "name": "Maroko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MAR",
+    "savedPath": "flags_out/MAR.png"
+  },
+  {
+    "short": "COL",
+    "name": "Kolumbie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/COL",
+    "savedPath": "flags_out/COL.png"
+  },
+  {
+    "short": "MEX",
+    "name": "Mexiko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MEX",
+    "savedPath": "flags_out/MEX.png"
+  },
+  {
+    "short": "URY",
+    "name": "Uruguay",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/URU",
+    "savedPath": "flags_out/URY.png"
+  },
+  {
+    "short": "USA",
+    "name": "Spojené státy",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/USA",
+    "savedPath": "flags_out/USA.png"
+  },
+  {
+    "short": "CHE",
+    "name": "Švýcarsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SUI",
+    "savedPath": "flags_out/CHE.png"
+  },
+  {
+    "short": "SEN",
+    "name": "Senegal",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SEN",
+    "savedPath": "flags_out/SEN.png"
+  },
+  {
+    "short": "JPN",
+    "name": "Japonsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/JPN",
+    "savedPath": "flags_out/JPN.png"
+  },
+  {
+    "short": "DNK",
+    "name": "Dánsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/DEN",
+    "savedPath": "flags_out/DNK.png"
+  },
+  {
+    "short": "IRN",
+    "name": "Írán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/IRN",
+    "savedPath": "flags_out/IRN.png"
+  },
+  {
+    "short": "KOR",
+    "name": "Jižní Korea",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/KOR",
+    "savedPath": "flags_out/KOR.png"
+  },
+  {
+    "short": "ECU",
+    "name": "Ekvádor",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ECU",
+    "savedPath": "flags_out/ECU.png"
+  },
+  {
+    "short": "AUT",
+    "name": "Rakousko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/AUT",
+    "savedPath": "flags_out/AUT.png"
+  },
+  {
+    "short": "AUS",
+    "name": "Austrálie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/AUS",
+    "savedPath": "flags_out/AUS.png"
+  },
+  {
+    "short": "TUR",
+    "name": "Türkiye",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TUR",
+    "savedPath": "flags_out/TUR.png"
+  },
+  {
+    "short": "UKR",
+    "name": "Ukrajina",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/UKR",
+    "savedPath": "flags_out/UKR.png"
+  },
+  {
+    "short": "CAN",
+    "name": "Kanada",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CAN",
+    "savedPath": "flags_out/CAN.png"
+  },
+  {
+    "short": "NOR",
+    "name": "Norsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/NOR",
+    "savedPath": "flags_out/NOR.png"
+  },
+  {
+    "short": "RUS",
+    "name": "Rusko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/RUS",
+    "savedPath": "flags_out/RUS.png"
+  },
+  {
+    "short": "PAN",
+    "name": "Panama",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/PAN",
+    "savedPath": "flags_out/PAN.png"
+  },
+  {
+    "short": "EGY",
+    "name": "Egypt",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/EGY",
+    "savedPath": "flags_out/EGY.png"
+  },
+  {
+    "short": "POL",
+    "name": "Polsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/POL",
+    "savedPath": "flags_out/POL.png"
+  },
+  {
+    "short": "WAL",
+    "name": "Wales",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/WAL",
+    "savedPath": "flags_out/WAL.png"
+  },
+  {
+    "short": "DZA",
+    "name": "Alžírsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ALG",
+    "savedPath": "flags_out/DZA.png"
+  },
+  {
+    "short": "SRB",
+    "name": "Srbsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SRB",
+    "savedPath": "flags_out/SRB.png"
+  },
+  {
+    "short": "HUN",
+    "name": "Maďarsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/HUN",
+    "savedPath": "flags_out/HUN.png"
+  },
+  {
+    "short": "SCO",
+    "name": "Skotsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SCO",
+    "savedPath": "flags_out/SCO.png"
+  },
+  {
+    "short": "PRY",
+    "name": "Paraguay",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/PAR",
+    "savedPath": "flags_out/PRY.png"
+  },
+  {
+    "short": "SWE",
+    "name": "Švédsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SWE",
+    "savedPath": "flags_out/SWE.png"
+  },
+  {
+    "short": "NGA",
+    "name": "Nigérie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/NGA",
+    "savedPath": "flags_out/NGA.png"
+  },
+  {
+    "short": "CIV",
+    "name": "Pobřeží slonoviny",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CIV",
+    "savedPath": "flags_out/CIV.png"
+  },
+  {
+    "short": "TUN",
+    "name": "Tunisko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TUN",
+    "savedPath": "flags_out/TUN.png"
+  },
+  {
+    "short": "CZE",
+    "name": "Česko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CZE",
+    "savedPath": "flags_out/CZE.png"
+  },
+  {
+    "short": "CRI",
+    "name": "Kostarika",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CRC",
+    "savedPath": "flags_out/CRI.png"
+  },
+  {
+    "short": "SVK",
+    "name": "Slovensko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SVK",
+    "savedPath": "flags_out/SVK.png"
+  },
+  {
+    "short": "ROU",
+    "name": "Rumunsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ROU",
+    "savedPath": "flags_out/ROU.png"
+  },
+  {
+    "short": "GRC",
+    "name": "Řecko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GRE",
+    "savedPath": "flags_out/GRC.png"
+  },
+  {
+    "short": "PER",
+    "name": "Peru",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/PER",
+    "savedPath": "flags_out/PER.png"
+  },
+  {
+    "short": "VEN",
+    "name": "Venezuela",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/VEN",
+    "savedPath": "flags_out/VEN.png"
+  },
+  {
+    "short": "SVN",
+    "name": "Slovinsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SVN",
+    "savedPath": "flags_out/SVN.png"
+  },
+  {
+    "short": "QAT",
+    "name": "Katar",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/QAT",
+    "savedPath": "flags_out/QAT.png"
+  },
+  {
+    "short": "MLI",
+    "name": "Mali",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MLI",
+    "savedPath": "flags_out/MLI.png"
+  },
+  {
+    "short": "CMR",
+    "name": "Kamerun",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CMR",
+    "savedPath": "flags_out/CMR.png"
+  },
+  {
+    "short": "UZB",
+    "name": "Uzbekistán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/UZB",
+    "savedPath": "flags_out/UZB.png"
+  },
+  {
+    "short": "CHL",
+    "name": "Chile",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CHI",
+    "savedPath": "flags_out/CHL.png"
+  },
+  {
+    "short": "IRQ",
+    "name": "Irák",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/IRQ",
+    "savedPath": "flags_out/IRQ.png"
+  },
+  {
+    "short": "SAU",
+    "name": "Saúdská Arábie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/KSA",
+    "savedPath": "flags_out/SAU.png"
+  },
+  {
+    "short": "ZAF",
+    "name": "Jihoafrická republika",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/RSA",
+    "savedPath": "flags_out/ZAF.png"
+  },
+  {
+    "short": "COD",
+    "name": "Kongo (DRK)",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/COD",
+    "savedPath": "flags_out/COD.png"
+  },
+  {
+    "short": "ALB",
+    "name": "Albánie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ALB",
+    "savedPath": "flags_out/ALB.png"
+  },
+  {
+    "short": "IRL",
+    "name": "Republic of Ireland",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/IRL",
+    "savedPath": "flags_out/IRL.png"
+  },
+  {
+    "short": "BFA",
+    "name": "Burkina Faso",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BFA",
+    "savedPath": "flags_out/BFA.png"
+  },
+  {
+    "short": "HND",
+    "name": "Honduras",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/HON",
+    "savedPath": "flags_out/HND.png"
+  },
+  {
+    "short": "MKD",
+    "name": "Severní Makedonie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MKD",
+    "savedPath": "flags_out/MKD.png"
+  },
+  {
+    "short": "JOR",
+    "name": "Jordánsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/JOR",
+    "savedPath": "flags_out/JOR.png"
+  },
+  {
+    "short": "ARE",
+    "name": "Spojené arabské emiráty",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/UAE",
+    "savedPath": "flags_out/ARE.png"
+  },
+  {
+    "short": "JAM",
+    "name": "Jamajka",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/JAM",
+    "savedPath": "flags_out/JAM.png"
+  },
+  {
+    "short": "NIR",
+    "name": "Severní Irsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/NIR",
+    "savedPath": "flags_out/NIR.png"
+  },
+  {
+    "short": "GEO",
+    "name": "Gruzie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GEO",
+    "savedPath": "flags_out/GEO.png"
+  },
+  {
+    "short": "CPV",
+    "name": "Kapverdy",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CPV",
+    "savedPath": "flags_out/CPV.png"
+  },
+  {
+    "short": "FIN",
+    "name": "Finsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/FIN",
+    "savedPath": "flags_out/FIN.png"
+  },
+  {
+    "short": "GHA",
+    "name": "Ghana",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GHA",
+    "savedPath": "flags_out/GHA.png"
+  },
+  {
+    "short": "ISL",
+    "name": "Island",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ISL",
+    "savedPath": "flags_out/ISL.png"
+  },
+  {
+    "short": "BIH",
+    "name": "Bosna a Hercegovina",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BIH",
+    "savedPath": "flags_out/BIH.png"
+  },
+  {
+    "short": "BOL",
+    "name": "Bolívie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BOL",
+    "savedPath": "flags_out/BOL.png"
+  },
+  {
+    "short": "GAB",
+    "name": "Gabon",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GAB",
+    "savedPath": "flags_out/GAB.png"
+  },
+  {
+    "short": "ISR",
+    "name": "Izrael",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ISR",
+    "savedPath": "flags_out/ISR.png"
+  },
+  {
+    "short": "OMN",
+    "name": "Omán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/OMA",
+    "savedPath": "flags_out/OMN.png"
+  },
+  {
+    "short": "GIN",
+    "name": "Guinea",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GUI",
+    "savedPath": "flags_out/GIN.png"
+  },
+  {
+    "short": "MNE",
+    "name": "Černá Hora",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MNE",
+    "savedPath": "flags_out/MNE.png"
+  },
+  {
+    "short": "CUW",
+    "name": "Curaçao",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CUW",
+    "savedPath": "flags_out/CUW.png"
+  },
+  {
+    "short": "UGA",
+    "name": "Uganda",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/UGA",
+    "savedPath": "flags_out/UGA.png"
+  },
+  {
+    "short": "RKS",
+    "name": "Kosovo",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/KOS",
+    "savedPath": "flags_out/RKS.png"
+  },
+  {
+    "short": "NZL",
+    "name": "Nový Zéland",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/NZL",
+    "savedPath": "flags_out/NZL.png"
+  },
+  {
+    "short": "SYR",
+    "name": "Sýrie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SYR",
+    "savedPath": "flags_out/SYR.png"
+  },
+  {
+    "short": "ZMB",
+    "name": "Zambie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ZAM",
+    "savedPath": "flags_out/ZMB.png"
+  },
+  {
+    "short": "HTI",
+    "name": "Haiti",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/HAI",
+    "savedPath": "flags_out/HTI.png"
+  },
+  {
+    "short": "AGO",
+    "name": "Angola",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ANG",
+    "savedPath": "flags_out/AGO.png"
+  },
+  {
+    "short": "BHR",
+    "name": "Bahrajn",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BHR",
+    "savedPath": "flags_out/BHR.png"
+  },
+  {
+    "short": "BGR",
+    "name": "Bulharsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BUL",
+    "savedPath": "flags_out/BGR.png"
+  },
+  {
+    "short": "BEN",
+    "name": "Benin",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BEN",
+    "savedPath": "flags_out/BEN.png"
+  },
+  {
+    "short": "CHN",
+    "name": "Čína",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CHN",
+    "savedPath": "flags_out/CHN.png"
+  },
+  {
+    "short": "SLV",
+    "name": "Salvador",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SLV",
+    "savedPath": "flags_out/SLV.png"
+  },
+  {
+    "short": "GTM",
+    "name": "Guatemala",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GUA",
+    "savedPath": "flags_out/GTM.png"
+  },
+  {
+    "short": "THA",
+    "name": "Thajsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/THA",
+    "savedPath": "flags_out/THA.png"
+  },
+  {
+    "short": "LUX",
+    "name": "Lucembursko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/LUX",
+    "savedPath": "flags_out/LUX.png"
+  },
+  {
+    "short": "PSE",
+    "name": "Palestina",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/PLE",
+    "savedPath": "flags_out/PSE.png"
+  },
+  {
+    "short": "GNQ",
+    "name": "Rovníková Guinea",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/EQG",
+    "savedPath": "flags_out/GNQ.png"
+  },
+  {
+    "short": "TTO",
+    "name": "Trinidad a Tobago",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TRI",
+    "savedPath": "flags_out/TTO.png"
+  },
+  {
+    "short": "MOZ",
+    "name": "Mosambik",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MOZ",
+    "savedPath": "flags_out/MOZ.png"
+  },
+  {
+    "short": "TJK",
+    "name": "Tádžikistán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TJK",
+    "savedPath": "flags_out/TJK.png"
+  },
+  {
+    "short": "BLR",
+    "name": "Bělorusko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BLR",
+    "savedPath": "flags_out/BLR.png"
+  },
+  {
+    "short": "ARM",
+    "name": "Arménie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ARM",
+    "savedPath": "flags_out/ARM.png"
+  },
+  {
+    "short": "KGZ",
+    "name": "Kyrgyzstán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/KGZ",
+    "savedPath": "flags_out/KGZ.png"
+  },
+  {
+    "short": "MDG",
+    "name": "Madagaskar",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MAD",
+    "savedPath": "flags_out/MDG.png"
+  },
+  {
+    "short": "TZA",
+    "name": "Tanzanie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TAN",
+    "savedPath": "flags_out/TZA.png"
+  },
+  {
+    "short": "NGA",
+    "name": "Nigérie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/NIG",
+    "savedPath": "flags_out/NGA.png"
+  },
+  {
+    "short": "KEN",
+    "name": "Keňa",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/KEN",
+    "savedPath": "flags_out/KEN.png"
+  },
+  {
+    "short": "LBN",
+    "name": "Libanon",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/LBN",
+    "savedPath": "flags_out/LBN.png"
+  },
+  {
+    "short": "VNM",
+    "name": "Vietnam",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/VIE",
+    "savedPath": "flags_out/VNM.png"
+  },
+  {
+    "short": "COM",
+    "name": "Komory",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/COM",
+    "savedPath": "flags_out/COM.png"
+  },
+  {
+    "short": "MRT",
+    "name": "Mauritánie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MTN",
+    "savedPath": "flags_out/MRT.png"
+  },
+  {
+    "short": "LBY",
+    "name": "Libye",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/LBY",
+    "savedPath": "flags_out/LBY.png"
+  },
+  {
+    "short": "KAZ",
+    "name": "Kazachstán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/KAZ",
+    "savedPath": "flags_out/KAZ.png"
+  },
+  {
+    "short": "NAM",
+    "name": "Namibie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/NAM",
+    "savedPath": "flags_out/NAM.png"
+  },
+  {
+    "short": "GMB",
+    "name": "Gambie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GAM",
+    "savedPath": "flags_out/GMB.png"
+  },
+  {
+    "short": "MYS",
+    "name": "Malajsie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MAS",
+    "savedPath": "flags_out/MYS.png"
+  },
+  {
+    "short": "SDN",
+    "name": "Súdán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SDN",
+    "savedPath": "flags_out/SDN.png"
+  },
+  {
+    "short": "PRK",
+    "name": "Severní Korea",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/PRK",
+    "savedPath": "flags_out/PRK.png"
+  },
+  {
+    "short": "SLE",
+    "name": "Sierra Leone",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SLE",
+    "savedPath": "flags_out/SLE.png"
+  },
+  {
+    "short": "IDN",
+    "name": "Indonésie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/IDN",
+    "savedPath": "flags_out/IDN.png"
+  },
+  {
+    "short": "AZE",
+    "name": "Ázerbájdžán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/AZE",
+    "savedPath": "flags_out/AZE.png"
+  },
+  {
+    "short": "TGO",
+    "name": "Togo",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TOG",
+    "savedPath": "flags_out/TGO.png"
+  },
+  {
+    "short": "CYP",
+    "name": "Kypr",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CYP",
+    "savedPath": "flags_out/CYP.png"
+  },
+  {
+    "short": "SUR",
+    "name": "Surinam",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SUR",
+    "savedPath": "flags_out/SUR.png"
+  },
+  {
+    "short": "FRO",
+    "name": "Faerské ostrovy",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/FRO",
+    "savedPath": "flags_out/FRO.png"
+  },
+  {
+    "short": "MWI",
+    "name": "Malawi",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MWI",
+    "savedPath": "flags_out/MWI.png"
+  },
+  {
+    "short": "ZWE",
+    "name": "Zimbabwe",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ZIM",
+    "savedPath": "flags_out/ZWE.png"
+  },
+  {
+    "short": "EST",
+    "name": "Estonsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/EST",
+    "savedPath": "flags_out/EST.png"
+  },
+  {
+    "short": "RWA",
+    "name": "Rwanda",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/RWA",
+    "savedPath": "flags_out/RWA.png"
+  },
+  {
+    "short": "GNB",
+    "name": "Guinea-Bissau",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GNB",
+    "savedPath": "flags_out/GNB.png"
+  },
+  {
+    "short": "NIC",
+    "name": "Nikaragua",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/NCA",
+    "savedPath": "flags_out/NIC.png"
+  },
+  {
+    "short": "COG",
+    "name": "Kongo",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CGO",
+    "savedPath": "flags_out/COG.png"
+  },
+  {
+    "short": "KWT",
+    "name": "Kuvajt",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/KUW",
+    "savedPath": "flags_out/KWT.png"
+  },
+  {
+    "short": "IND",
+    "name": "Indie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/IND",
+    "savedPath": "flags_out/IND.png"
+  },
+  {
+    "short": "BWA",
+    "name": "Botswana",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BOT",
+    "savedPath": "flags_out/BWA.png"
+  },
+  {
+    "short": "LBR",
+    "name": "Libérie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/LBR",
+    "savedPath": "flags_out/LBR.png"
+  },
+  {
+    "short": "LVA",
+    "name": "Lotyšsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/LVA",
+    "savedPath": "flags_out/LVA.png"
+  },
+  {
+    "short": "CAF",
+    "name": "Středoafrická republika",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CTA",
+    "savedPath": "flags_out/CAF.png"
+  },
+  {
+    "short": "PHL",
+    "name": "Filipíny",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/PHI",
+    "savedPath": "flags_out/PHL.png"
+  },
+  {
+    "short": "TKM",
+    "name": "Turkmenistán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TKM",
+    "savedPath": "flags_out/TKM.png"
+  },
+  {
+    "short": "DOM",
+    "name": "Dominikánská republika",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/DOM",
+    "savedPath": "flags_out/DOM.png"
+  },
+  {
+    "short": "LSO",
+    "name": "Lesotho",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/LES",
+    "savedPath": "flags_out/LSO.png"
+  },
+  {
+    "short": "BDI",
+    "name": "Burundi",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BDI",
+    "savedPath": "flags_out/BDI.png"
+  },
+  {
+    "short": "LTU",
+    "name": "Litva",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/LTU",
+    "savedPath": "flags_out/LTU.png"
+  },
+  {
+    "short": "ETH",
+    "name": "Etiopie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ETH",
+    "savedPath": "flags_out/ETH.png"
+  },
+  {
+    "short": "HKG",
+    "name": "Hongkong",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/HKG",
+    "savedPath": "flags_out/HKG.png"
+  },
+  {
+    "short": "SLB",
+    "name": "Šalamounovy ostrovy",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SOL",
+    "savedPath": "flags_out/SLB.png"
+  },
+  {
+    "short": "NCL",
+    "name": "Nová Kaledonie",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/NCL",
+    "savedPath": "flags_out/NCL.png"
+  },
+  {
+    "short": "SKN",
+    "name": "St Kitts and Nevis",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SKN",
+    "savedPath": "flags_out/SKN.png"
+  },
+  {
+    "short": "YEM",
+    "name": "Jemen",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/YEM",
+    "savedPath": "flags_out/YEM.png"
+  },
+  {
+    "short": "GUY",
+    "name": "Guyana",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GUY",
+    "savedPath": "flags_out/GUY.png"
+  },
+  {
+    "short": "FJI",
+    "name": "Fidži",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/FIJ",
+    "savedPath": "flags_out/FJI.png"
+  },
+  {
+    "short": "SGP",
+    "name": "Singapur",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SGP",
+    "savedPath": "flags_out/SGP.png"
+  },
+  {
+    "short": "MDA",
+    "name": "Moldavsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MDA",
+    "savedPath": "flags_out/MDA.png"
+  },
+  {
+    "short": "PUR",
+    "name": "Portoriko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/PUR",
+    "savedPath": "flags_out/PUR.png"
+  },
+  {
+    "short": "TAH",
+    "name": "Tahiti",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TAH",
+    "savedPath": "flags_out/TAH.png"
+  },
+  {
+    "short": "SWZ",
+    "name": "Eswatini (Svazijsko)",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SWZ",
+    "savedPath": "flags_out/SWZ.png"
+  },
+  {
+    "short": "ATG",
+    "name": "Antigua a Barbuda",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ATG",
+    "savedPath": "flags_out/ATG.png"
+  },
+  {
+    "short": "VUT",
+    "name": "Vanuatu",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/VAN",
+    "savedPath": "flags_out/VUT.png"
+  },
+  {
+    "short": "AFG",
+    "name": "Afghánistán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/AFG",
+    "savedPath": "flags_out/AFG.png"
+  },
+  {
+    "short": "MMR",
+    "name": "Myanmar (Barma)",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MYA",
+    "savedPath": "flags_out/MMR.png"
+  },
+  {
+    "short": "LCA",
+    "name": "St Lucia",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/LCA",
+    "savedPath": "flags_out/LCA.png"
+  },
+  {
+    "short": "GRD",
+    "name": "Grenada",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GRN",
+    "savedPath": "flags_out/GRD.png"
+  },
+  {
+    "short": "MLT",
+    "name": "Malta",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MLT",
+    "savedPath": "flags_out/MLT.png"
+  },
+  {
+    "short": "SSD",
+    "name": "Jižní Súdán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SSD",
+    "savedPath": "flags_out/SSD.png"
+  },
+  {
+    "short": "BER",
+    "name": "Bermudy",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BER",
+    "savedPath": "flags_out/BER.png"
+  },
+  {
+    "short": "CUB",
+    "name": "Kuba",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CUB",
+    "savedPath": "flags_out/CUB.png"
+  },
+  {
+    "short": "PNG",
+    "name": "Papua-Nová Guinea",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/PNG",
+    "savedPath": "flags_out/PNG.png"
+  },
+  {
+    "short": "VIN",
+    "name": "St Vincent and the Grenadines",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/VIN",
+    "savedPath": "flags_out/VIN.png"
+  },
+  {
+    "short": "AND",
+    "name": "Andorra",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/AND",
+    "savedPath": "flags_out/AND.png"
+  },
+  {
+    "short": "MDV",
+    "name": "Maledivy",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MDV",
+    "savedPath": "flags_out/MDV.png"
+  },
+  {
+    "short": "TPE",
+    "name": "Čínská Tchaj-pej",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TPE",
+    "savedPath": "flags_out/TPE.png"
+  },
+  {
+    "short": "BRB",
+    "name": "Barbados",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BRB",
+    "savedPath": "flags_out/BRB.png"
+  },
+  {
+    "short": "MSR",
+    "name": "Montserrat",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MSR",
+    "savedPath": "flags_out/MSR.png"
+  },
+  {
+    "short": "MUS",
+    "name": "Mauricius",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MRI",
+    "savedPath": "flags_out/MUS.png"
+  },
+  {
+    "short": "TCD",
+    "name": "Čad",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CHA",
+    "savedPath": "flags_out/TCD.png"
+  },
+  {
+    "short": "KHM",
+    "name": "Kambodža",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CAM",
+    "savedPath": "flags_out/KHM.png"
+  },
+  {
+    "short": "NPL",
+    "name": "Nepál",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/NEP",
+    "savedPath": "flags_out/NPL.png"
+  },
+  {
+    "short": "BLZ",
+    "name": "Belize",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BLZ",
+    "savedPath": "flags_out/BLZ.png"
+  },
+  {
+    "short": "DMA",
+    "name": "Dominika",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/DMA",
+    "savedPath": "flags_out/DMA.png"
+  },
+  {
+    "short": "BGD",
+    "name": "Bangladéš",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BAN",
+    "savedPath": "flags_out/BGD.png"
+  },
+  {
+    "short": "ASA",
+    "name": "Americká Samoa",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ASA",
+    "savedPath": "flags_out/ASA.png"
+  },
+  {
+    "short": "BRN",
+    "name": "Brunej",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BRU",
+    "savedPath": "flags_out/BRN.png"
+  },
+  {
+    "short": "MNG",
+    "name": "Mongolsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MNG",
+    "savedPath": "flags_out/MNG.png"
+  },
+  {
+    "short": "COK",
+    "name": "Cookovy ostrovy",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/COK",
+    "savedPath": "flags_out/COK.png"
+  },
+  {
+    "short": "LAO",
+    "name": "Laos",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/LAO",
+    "savedPath": "flags_out/LAO.png"
+  },
+  {
+    "short": "BTN",
+    "name": "Bhútán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BHU",
+    "savedPath": "flags_out/BTN.png"
+  },
+  {
+    "short": "WSM",
+    "name": "Samoa",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SAM",
+    "savedPath": "flags_out/WSM.png"
+  },
+  {
+    "short": "STP",
+    "name": "Svatý Tomáš a Princův ostrov",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/STP",
+    "savedPath": "flags_out/STP.png"
+  },
+  {
+    "short": "MAC",
+    "name": "Macao",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/MAC",
+    "savedPath": "flags_out/MAC.png"
+  },
+  {
+    "short": "LKA",
+    "name": "Srí Lanka",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SRI",
+    "savedPath": "flags_out/LKA.png"
+  },
+  {
+    "short": "ARU",
+    "name": "Aruba",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ARU",
+    "savedPath": "flags_out/ARU.png"
+  },
+  {
+    "short": "CYM",
+    "name": "Kajmanské ostrovy",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/CAY",
+    "savedPath": "flags_out/CYM.png"
+  },
+  {
+    "short": "DJI",
+    "name": "Džibutsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/DJI",
+    "savedPath": "flags_out/DJI.png"
+  },
+  {
+    "short": "TLS",
+    "name": "Východní Timor",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TLS",
+    "savedPath": "flags_out/TLS.png"
+  },
+  {
+    "short": "PAK",
+    "name": "Pákistán",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/PAK",
+    "savedPath": "flags_out/PAK.png"
+  },
+  {
+    "short": "TON",
+    "name": "Tonga",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TGA",
+    "savedPath": "flags_out/TON.png"
+  },
+  {
+    "short": "GIB",
+    "name": "Gibraltar",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GIB",
+    "savedPath": "flags_out/GIB.png"
+  },
+  {
+    "short": "GUM",
+    "name": "Guam",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/GUM",
+    "savedPath": "flags_out/GUM.png"
+  },
+  {
+    "short": "SOM",
+    "name": "Somálsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SOM",
+    "savedPath": "flags_out/SOM.png"
+  },
+  {
+    "short": "BHS",
+    "name": "Bahamy",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/BAH",
+    "savedPath": "flags_out/BHS.png"
+  },
+  {
+    "short": "SYC",
+    "name": "Seychely",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SEY",
+    "savedPath": "flags_out/SYC.png"
+  },
+  {
+    "short": "TCA",
+    "name": "Turks a Caicos",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/TCA",
+    "savedPath": "flags_out/TCA.png"
+  },
+  {
+    "short": "LIE",
+    "name": "Lichtenštejnsko",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/LIE",
+    "savedPath": "flags_out/LIE.png"
+  },
+  {
+    "short": "VIR",
+    "name": "US Virgin Islands",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/VIR",
+    "savedPath": "flags_out/VIR.png"
+  },
+  {
+    "short": "VGB",
+    "name": "Britské Panenské ostrovy",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/VGB",
+    "savedPath": "flags_out/VGB.png"
+  },
+  {
+    "short": "AIA",
+    "name": "Anguilla",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/AIA",
+    "savedPath": "flags_out/AIA.png"
+  },
+  {
+    "short": "SMR",
+    "name": "San Marino",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/SMR",
+    "savedPath": "flags_out/SMR.png"
+  },
+  {
+    "short": "ERI",
+    "name": "Eritrea (unranked)",
+    "flagSrc": "https://api.fifa.com/api/v3/picture/flags-sq-4/ERI",
+    "savedPath": "flags_out/ERI.png"
+  }
+]

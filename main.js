@@ -714,6 +714,7 @@
   const PNG_916_CFG = Object.freeze({
     W: 1080, H: 1920,
     padding: 72,
+    topPad: 200,
     logos: { size: 180, y: 130, inset: 110 },
     names: { y: 360, size: 64, weight: 700, shadow: true },
     score: { y: 640, sizeHome: 260, sizeAway: 260, dashSize: 140, gap: 60 },
@@ -830,6 +831,10 @@
     const W = cfg.W, H = cfg.H;
     const pad = cfg.padding ?? 64;
 
+    const is916 = (j.meta?.aspectRatio || "") === "9:16";
+    const topPad = is916 ? Math.max(0, cfg.topPad | 0) : 0;
+    const effH = H - topPad;
+
     const canvas = createCanvas(W, H);
     const ctx = canvas.getContext("2d");
 
@@ -895,17 +900,17 @@
       ctx.fillRect(0, 0, W, H);
     }
 
-    const logosH = Math.floor(H / 6);
-    const namesH = Math.floor(H / 6);
-    const scoreH = Math.floor(H / 8);
-    const statusH = Math.floor(H / 10);
-    const eventsTop = logosH + namesH + scoreH;
-    const eventsH = Math.max(0, H - statusH - eventsTop);
+    const logosH = Math.floor(effH / 6);
+    const namesH = Math.floor(effH / 6);
+    const scoreH = Math.floor(effH / 8);
+    const statusH = Math.floor(effH / 10);
+    const eventsTop = topPad + logosH + namesH + scoreH;
+    const eventsH = Math.max(0, (topPad + effH) - statusH - (topPad + logosH + namesH + scoreH));
 
     const areas = {
-      logos: { x: 0, y: 0, w: W, h: logosH },
-      names: { x: 0, y: logosH, w: W, h: namesH },
-      score: { x: 0, y: logosH + namesH, w: W, h: scoreH },
+      logos: { x: 0, y: topPad + 0, w: W, h: logosH },
+      names: { x: 0, y: topPad + logosH, w: W, h: namesH },
+      score: { x: 0, y: topPad + logosH + namesH, w: W, h: scoreH },
       events: { x: 0, y: eventsTop, w: W, h: eventsH },
       status: { x: 0, y: H - statusH, w: W, h: statusH },
     };
